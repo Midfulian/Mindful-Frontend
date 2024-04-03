@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:gr_project/Views/Pages/chat_page.dart';
 
 import 'package:gr_project/Views/Pages/login_screen.dart';
 import 'package:gr_project/Views/Pages/start_screen.dart';
@@ -40,7 +41,7 @@ class MainApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
-      home: defaultHome,
+      home: ChatPage(), //defaultHome,
     );
   }
 }
