@@ -2,13 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import 'package:gr_project/Views/Pages/login_screen.dart';
+import 'package:gr_project/Views/Pages/main_screens/MySpace.dart';
 import 'package:gr_project/Views/Pages/start_screen.dart';
 import 'package:provider/provider.dart';
 import 'Views/Pages/onBoarding_screen.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'firebase_options.dart';
-import 'note_provider.dart';
+import 'models/note_provider.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -40,7 +41,7 @@ class MainApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
-      home: defaultHome,
+      home: MySpacePage(),
     );
   }
 }

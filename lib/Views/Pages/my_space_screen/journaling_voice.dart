@@ -3,11 +3,11 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_sound/flutter_sound.dart';
+import 'package:gr_project/models/note_provider.dart';
 import 'package:permission_handler/permission_handler.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:provider/provider.dart';
 
-import '../../note_provider.dart';
 
 class JournalingVoicePage extends StatefulWidget {
   @override
@@ -47,6 +47,10 @@ class _JournalingVoicePageState extends State<JournalingVoicePage> {
 
   Future<void> stop() async {
     await recorder.stopRecorder();
+  }
+
+  Future<void> pause() async {
+    await recorder.pauseRecorder();
   }
 
   Future<void> requestStoragePermission() async {
@@ -103,7 +107,7 @@ class _JournalingVoicePageState extends State<JournalingVoicePage> {
             ElevatedButton(
               onPressed: () async {
                 if (recorder.isRecording) {
-                  await stop();
+                  await pause();
                 } else {
                   await record();
                 }
