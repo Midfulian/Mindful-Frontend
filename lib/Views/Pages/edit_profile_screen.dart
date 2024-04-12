@@ -86,7 +86,8 @@ class _EditProfilePageState extends State<EditProfilePage> {
                             controller: firstNameController,
                             keyboardType: TextInputType.name,
                             decoration: InputDecoration(
-                              labelText: 'Selina',
+                              hintText: "Selina",
+                              labelText: 'FirstName',
                               prefixIcon: const Icon(
                                 Icons.account_circle,
                               ),
@@ -120,7 +121,8 @@ class _EditProfilePageState extends State<EditProfilePage> {
                             controller: lastNameController,
                             keyboardType: TextInputType.name,
                             decoration: InputDecoration(
-                              labelText: 'David',
+                              hintText: "David",
+                              labelText: 'LastName',
                               prefixIcon: const Icon(
                                 Icons.account_circle,
                               ),
@@ -162,7 +164,8 @@ class _EditProfilePageState extends State<EditProfilePage> {
                       controller: emailController,
                       keyboardType: TextInputType.emailAddress,
                       decoration: InputDecoration(
-                        labelText: 'selina@gemail.com',
+                        hintText: 'selina@gemail.com',
+                        labelText: 'Email',
                         prefixIcon: const Icon(
                           Icons.email_outlined,
                         ),
@@ -201,7 +204,8 @@ class _EditProfilePageState extends State<EditProfilePage> {
                       controller: phoneController,
                       keyboardType: TextInputType.phone,
                       decoration: InputDecoration(
-                        labelText: '01234567890',
+                        hintText: '01234567890',
+                        labelText: 'phone number',
                         prefixIcon: const Icon(
                           Icons.phone_callback,
                         ),
@@ -242,7 +246,8 @@ class _EditProfilePageState extends State<EditProfilePage> {
                       keyboardType: TextInputType.visiblePassword,
                       obscureText: isVisible,
                       decoration: InputDecoration(
-                        labelText: '*********',
+                        hintText: '*********',
+                        labelText: 'Password',
                         prefixIcon: const Icon(
                           Icons.lock_outline_rounded,
                         ),
