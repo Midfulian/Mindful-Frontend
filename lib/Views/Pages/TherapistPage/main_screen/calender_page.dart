@@ -41,11 +41,13 @@ class _CalenderPageState extends State<CalenderPage> {
                               fontWeight: FontWeight.w700),
                         ),
                         Padding(
-                          padding:
-                              EdgeInsets.fromLTRB(screenWidth * 0.18, 0, 0, 0),
-                          child: const Image(
-                              image:
-                                  AssetImage("assets/images/appointments.png")),
+                          padding: EdgeInsets.fromLTRB(
+                              screenWidth * 0.2, 0, 0, screenWidth * 0.02),
+                          child: Image(
+                            image: AssetImage("assets/images/edit.png"),
+                            width: screenWidth * 0.06,
+                            color: Colors.blue,
+                          ),
                         ),
                       ],
                     ),
