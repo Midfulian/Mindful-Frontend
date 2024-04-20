@@ -10,6 +10,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'Views/Pages/onBoarding_screen.dart';
 import 'firebase_options.dart';
 import 'models/note_provider.dart';
+import 'Views/Pages/TherapistPage/main_screen/appointment.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -41,7 +42,7 @@ class MainApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
-      home: myBottomNavBar(),
+      home: Appointmentspages(),
     );
   }
 }
