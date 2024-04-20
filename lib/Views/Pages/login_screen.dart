@@ -1,6 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:gr_project/Control/auth_controller.dart';
+import 'package:gr_project/Controller/auth_controller.dart';
 import 'package:gr_project/Views/Pages/forgot_password_screen/email_screen.dart';
 
 import '../Components/formField.dart';

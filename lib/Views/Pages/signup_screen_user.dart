@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:gr_project/Control/auth_controller.dart';
+import 'package:gr_project/Controller/auth_controller.dart';
 
 import '../../Model/SignupUserRequest.dart';
 import 'assessment_screen/assessment_first.dart';
