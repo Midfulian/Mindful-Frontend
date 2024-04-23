@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:gr_project/Views/Components/Reviews_commponent.dart';
+import 'package:gr_project/Views/Components/Therapist_commponents/Reviews_commponent.dart';
 import 'package:gr_project/Views/Components/Therapist_commponents/TotalSessions_component.dart';
 import 'package:gr_project/Views/Components/Therapist_commponents/impact_component.dart';
 import 'package:gr_project/Views/Components/Therapist_commponents/session_component.dart';
