@@ -2,10 +2,16 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:gr_project/Views/Pages/TherapistPage/main_screen/nav_bar.dart';
+import 'package:gr_project/Views/Pages/TherapistPage/main_screen/past_session.dart';
 import 'package:gr_project/Views/Pages/login_screen.dart';
 import 'package:gr_project/Views/Pages/start_screen.dart';
 import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:gr_project/Views/Pages/TherapistPage/main_screen/home_one.dart';
+import 'package:gr_project/Views/Pages/TherapistPage/main_screen/upcoming_session.dart';
+import 'package:gr_project/Views/Pages/TherapistPage/main_screen/upcoming_session.dart';
+
+
 
 import 'Views/Pages/onBoarding_screen.dart';
 import 'firebase_options.dart';
@@ -41,7 +47,7 @@ class MainApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return const GetMaterialApp(
       debugShowCheckedModeBanner: false,
-      home: BottomNavBar(),
+      home: HomeOne(),
     );
   }
 }
