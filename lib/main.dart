@@ -1,7 +1,7 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:gr_project/Views/Pages/TherapistPage/main_screen/nav_bar.dart';
+import 'package:gr_project/Views/Pages/TherapistPage/main_screen/upcoming_session.dart';
 import 'package:gr_project/Views/Pages/login_screen.dart';
 import 'package:gr_project/Views/Pages/start_screen.dart';
 import 'package:provider/provider.dart';
@@ -41,7 +41,7 @@ class MainApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return const GetMaterialApp(
       debugShowCheckedModeBanner: false,
-      home: BottomNavBar(),
+      home: UpcomingSession(),
     );
   }
 }

@@ -1,4 +1,7 @@
 {
     "java.configuration.updateBuildConfiguration": "interactive",
-    "cmake.sourceDirectory": "C:/Users/Hagag/Desktop/New folder (2)/Mindful-Frontend/linux"
+    "cmake.sourceDirectory": "C:/Users/Hagag/Desktop/New folder (2)/Mindful-Frontend/linux",
+    "cSpell.words": [
+        "Appointmentspages"
+    ]
 }
