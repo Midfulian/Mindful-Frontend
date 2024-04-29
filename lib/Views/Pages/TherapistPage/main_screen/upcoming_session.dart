@@ -24,7 +24,17 @@ class UpcomingSessionState extends State<UpcomingSession> {
     double screenWidth = MediaQuery.of(context).size.width;
     double screenHeight = MediaQuery.of(context).size.height;
 
-    Widget buildContainer(BuildContext context, IconData trailingIcon) {
+    Widget buildContainer(
+      BuildContext context,
+      String docImage,
+      String docName,
+      String docEmail,
+      String dateImg,
+      String date,
+      String timeImg,
+      String time,
+      String trailingIcon,
+    ) {
       return Padding(
         padding:
             EdgeInsets.fromLTRB(screenWidth * 0.02, 0, screenWidth * 0.02, 0),
@@ -47,19 +57,19 @@ class UpcomingSessionState extends State<UpcomingSession> {
                 children: [
                   Padding(
                     padding: EdgeInsets.fromLTRB(
-                        screenWidth * 0.03, 0, 0, screenWidth * 0.03),
+                        screenWidth * 0.03, 0, 0, screenWidth * 0.07),
                     child: Image(
-                      image: AssetImage("assets/images/Photo.png"),
+                      image: AssetImage(docImage),
                       width: screenWidth * 0.1,
                     ),
                   ),
                   Column(
                     children: [
                       Padding(
-                        padding: EdgeInsets.fromLTRB(
-                            0, screenWidth * 0.04, screenWidth * 0.17, 0),
+                        padding:
+                            EdgeInsets.fromLTRB(0, 0, screenWidth * 0.1, 0),
                         child: Text(
-                          'Mona Ali',
+                          '$docName',
                           style: TextStyle(
                               color: Color.fromRGBO(51, 51, 51, 1),
                               fontFamily: "Robot",
@@ -71,7 +81,7 @@ class UpcomingSessionState extends State<UpcomingSession> {
                         padding: EdgeInsets.fromLTRB(
                             0, 0, screenWidth * 0.17, screenWidth * 0.02),
                         child: Text(
-                          '@eslina2022',
+                          '$docEmail',
                           style: TextStyle(
                               color: Color.fromRGBO(51, 51, 51, 1),
                               fontFamily: "Robot",
@@ -84,9 +94,9 @@ class UpcomingSessionState extends State<UpcomingSession> {
                           Padding(
                             padding: EdgeInsets.fromLTRB(
                                 screenHeight * 0.02, 0, 0, 0),
-                            child: Icon(
-                              Icons.calendar_today,
-                              size: screenWidth * 0.04,
+                            child: Image(
+                              image: AssetImage(dateImg),
+                              width: screenWidth * 0.04,
                               color: Colors.black45,
                             ),
                           ),
@@ -94,7 +104,7 @@ class UpcomingSessionState extends State<UpcomingSession> {
                             padding: EdgeInsets.fromLTRB(
                                 screenHeight * 0.01, 0, 0, 0),
                             child: Text(
-                              "02 January",
+                              "$date",
                               style: TextStyle(
                                   color: Color.fromRGBO(51, 51, 51, 1),
                                   fontFamily: "Robot",
@@ -105,9 +115,9 @@ class UpcomingSessionState extends State<UpcomingSession> {
                           Padding(
                             padding: EdgeInsets.fromLTRB(
                                 screenWidth * 0.03, 0, 0, 0),
-                            child: Icon(
-                              Icons.access_time,
-                              size: screenWidth * 0.04,
+                            child: Image(
+                              image: AssetImage(timeImg),
+                              width: screenWidth * 0.04,
                               color: Colors.black45,
                             ),
                           ),
@@ -115,7 +125,7 @@ class UpcomingSessionState extends State<UpcomingSession> {
                             padding: EdgeInsets.fromLTRB(
                                 screenWidth * 0.01, 0, 0, 0),
                             child: Text(
-                              "7:30 PM",
+                              "$time",
                               style: TextStyle(
                                   color: Color.fromRGBO(51, 51, 51, 1),
                                   fontFamily: "Robot",
@@ -128,12 +138,12 @@ class UpcomingSessionState extends State<UpcomingSession> {
                     ],
                   ),
                   Padding(
-                    padding: EdgeInsets.fromLTRB(
-                        screenWidth * 0.23, 0, 0, screenWidth * 0.18),
-                    child: IconButton(
-                      icon: Icon(trailingIcon),
+                    padding: EdgeInsets.fromLTRB(screenWidth * 0.23,
+                        screenWidth * 0.03, 0, screenWidth * 0.18),
+                    child: Image(
+                      image: AssetImage(trailingIcon),
                       color: Colors.blue,
-                      onPressed: () {},
+                      width: screenWidth * 0.06,
                     ),
                   ),
                 ],
@@ -183,15 +193,42 @@ class UpcomingSessionState extends State<UpcomingSession> {
                   ),
                   Padding(
                     padding: EdgeInsets.fromLTRB(0, screenWidth * 0.04, 0, 0),
-                    child: buildContainer(context, Icons.video_call_rounded),
+                    child: buildContainer(
+                        context,
+                        "assets/images/Photo.png",
+                        "Areej Hagag",
+                        "@areej.com",
+                        "assets/images/calendar.png",
+                        "02 January",
+                        "assets/images/clock.png",
+                        "12:30 PM",
+                        "assets/images/cam-recorder.png"),
                   ),
                   Padding(
                     padding: EdgeInsets.fromLTRB(0, screenWidth * 0.04, 0, 0),
-                    child: buildContainer(context, Icons.chat_rounded),
+                    child: buildContainer(
+                        context,
+                        "assets/images/Photo.png",
+                        "Ziad Ezzat",
+                        "@areej.com",
+                        "assets/images/calendar.png",
+                        "02 January",
+                        "assets/images/clock.png",
+                        "12:30 PM",
+                        "assets/images/bubble-chat.png"),
                   ),
                   Padding(
                     padding: EdgeInsets.fromLTRB(0, screenWidth * 0.04, 0, 0),
-                    child: buildContainer(context, Icons.mic_none_rounded),
+                    child: buildContainer(
+                        context,
+                        "assets/images/Photo.png",
+                        "Mona Ali",
+                        "@areej.com",
+                        "assets/images/calendar.png",
+                        "02 January",
+                        "assets/images/clock.png",
+                        "12:30 PM",
+                        "assets/images/mic.png"),
                   ),
                 ],
               );

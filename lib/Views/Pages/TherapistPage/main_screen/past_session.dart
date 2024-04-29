@@ -24,8 +24,18 @@ class PastSessionState extends State<PastSession> {
     double screenWidth = MediaQuery.of(context).size.width;
     double screenHeight = MediaQuery.of(context).size.height;
 
-    Widget buildContainer(BuildContext context, IconData trailingIcon,
-        IconData Rowicon, String s) {
+    Widget buildContainer(
+        BuildContext context,
+        String docImage,
+        String docName,
+        String docEmail,
+        String dateImg,
+        String date,
+        String timeImg,
+        String time,
+        String trailingIcon,
+        String sessionIcon,
+        String sessionText) {
       return Padding(
         padding: EdgeInsets.fromLTRB(screenWidth * 0.03, 0, 0, 0),
         child: Container(
@@ -49,17 +59,17 @@ class PastSessionState extends State<PastSession> {
                     padding: EdgeInsets.fromLTRB(
                         screenWidth * 0.03, 0, 0, screenWidth * 0.03),
                     child: Image(
-                      image: AssetImage("assets/images/Photo.png"),
+                      image: AssetImage(docImage),
                       width: screenWidth * 0.1,
                     ),
                   ),
                   Column(
                     children: [
                       Padding(
-                        padding: EdgeInsets.fromLTRB(
-                            0, screenWidth * 0.04, screenWidth * 0.17, 0),
+                        padding: EdgeInsets.fromLTRB(screenHeight * 0.0,
+                            screenWidth * 0.04, screenWidth * 0.14, 0),
                         child: Text(
-                          'Mona Ali',
+                          '$docName',
                           style: TextStyle(
                               color: Color.fromRGBO(51, 51, 51, 1),
                               fontFamily: "Robot",
@@ -71,7 +81,7 @@ class PastSessionState extends State<PastSession> {
                         padding: EdgeInsets.fromLTRB(
                             0, 0, screenWidth * 0.17, screenWidth * 0.02),
                         child: Text(
-                          '@eslina2022',
+                          '$docEmail',
                           style: TextStyle(
                               color: Color.fromRGBO(51, 51, 51, 1),
                               fontFamily: "Robot",
@@ -84,9 +94,9 @@ class PastSessionState extends State<PastSession> {
                           Padding(
                             padding: EdgeInsets.fromLTRB(
                                 screenHeight * 0.02, 0, 0, 0),
-                            child: Icon(
-                              Icons.calendar_today,
-                              size: screenWidth * 0.04,
+                            child: Image(
+                              image: AssetImage(dateImg),
+                              width: screenWidth * 0.04,
                               color: Colors.black45,
                             ),
                           ),
@@ -94,7 +104,7 @@ class PastSessionState extends State<PastSession> {
                             padding: EdgeInsets.fromLTRB(
                                 screenHeight * 0.01, 0, 0, 0),
                             child: Text(
-                              "02 January",
+                              "$date",
                               style: TextStyle(
                                   color: Color.fromRGBO(51, 51, 51, 1),
                                   fontFamily: "Robot",
@@ -105,9 +115,9 @@ class PastSessionState extends State<PastSession> {
                           Padding(
                             padding: EdgeInsets.fromLTRB(
                                 screenWidth * 0.03, 0, 0, 0),
-                            child: Icon(
-                              Icons.access_time,
-                              size: screenWidth * 0.04,
+                            child: Image(
+                              image: AssetImage(timeImg),
+                              width: screenWidth * 0.04,
                               color: Colors.black45,
                             ),
                           ),
@@ -115,7 +125,7 @@ class PastSessionState extends State<PastSession> {
                             padding: EdgeInsets.fromLTRB(
                                 screenWidth * 0.01, 0, 0, 0),
                             child: Text(
-                              "7:30 PM",
+                              "$time",
                               style: TextStyle(
                                   color: Color.fromRGBO(51, 51, 51, 1),
                                   fontFamily: "Robot",
@@ -132,10 +142,10 @@ class PastSessionState extends State<PastSession> {
                       Padding(
                         padding: EdgeInsets.fromLTRB(
                             screenWidth * 0.06, 0, 0, screenWidth * 0.1),
-                        child: IconButton(
-                          icon: Icon(trailingIcon),
+                        child: Image(
+                          image: AssetImage(trailingIcon),
                           color: Colors.blue,
-                          onPressed: () {},
+                          width: screenWidth * 0.05,
                         ),
                       ),
                       Padding(
@@ -156,17 +166,18 @@ class PastSessionState extends State<PastSession> {
               Row(
                 children: [
                   Padding(
-                    padding: EdgeInsets.fromLTRB(
-                        screenWidth * 0.07, 0, 0, screenWidth * 0.01),
-                    child: IconButton(
-                      onPressed: () {},
-                      icon: Icon(Rowicon),
+                    padding: EdgeInsets.fromLTRB(screenWidth * 0.15,
+                        screenWidth * 0.02, 0, screenWidth * 0.01),
+                    child: Image(
+                      image: AssetImage(sessionIcon),
                       color: Colors.black,
+                      width: screenWidth * 0.05,
                     ),
                   ),
                   Padding(
-                    padding: EdgeInsets.fromLTRB(0, 0, 0, screenWidth * 0.01),
-                    child: Text("$s"),
+                    padding: EdgeInsets.fromLTRB(
+                        0, screenWidth * 0.02, 0, screenWidth * 0.01),
+                    child: Text("$sessionText"),
                   ),
                 ],
               )
@@ -200,25 +211,46 @@ class PastSessionState extends State<PastSession> {
                       padding: EdgeInsets.fromLTRB(0, screenWidth * 0.04, 0, 0),
                       child: buildContainer(
                           context,
-                          Icons.file_copy,
-                          Icons.chat_rounded,
+                          "assets/images/Photo.png",
+                          "Mona Ali",
+                          "@mona.com",
+                          "assets/images/calendar.png",
+                          "02 January",
+                          "assets/images/clock.png",
+                          "12:30 PM",
+                          "assets/images/attachment.png",
+                          "assets/images/bubble-chat.png",
                           " This session was a chat session"),
                     ),
                     Padding(
                       padding: EdgeInsets.fromLTRB(0, screenWidth * 0.04, 0, 0),
                       child: buildContainer(
                           context,
-                          Icons.file_copy,
-                          Icons.video_call_rounded,
-                          "This session was a video call session"),
+                          "assets/images/Photo.png",
+                          "Areej Hagag",
+                          "@Areej.com",
+                          "assets/images/calendar.png",
+                          "02 January",
+                          "assets/images/clock.png",
+                          "12:30 PM",
+                          "assets/images/attachment.png",
+                          "assets/images/cam-recorder.png",
+                          " This session was a video call session"),
                     ),
                     Padding(
                       padding: EdgeInsets.fromLTRB(0, screenWidth * 0.04, 0, 0),
                       child: buildContainer(
                           context,
-                          Icons.file_copy,
-                          Icons.mic_none_rounded,
-                          "This session was an audio session"),
+                          "assets/images/Photo.png",
+                          "Ziad Ezzat",
+                          "@Ziad.com",
+                          "assets/images/calendar.png",
+                          "02 January",
+                          "assets/images/clock.png",
+                          "12:30 PM",
+                          "assets/images/attachment.png",
+                          "assets/images/mic.png",
+                          " This session was an audio session"),
                     ),
                   ],
                 ),
