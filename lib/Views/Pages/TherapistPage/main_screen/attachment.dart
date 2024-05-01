@@ -1,26 +1,37 @@
 import 'package:flutter/material.dart';
 
 class AttachmentPage extends StatelessWidget {
-  Widget buildContainer() {
-    return Container(
-      margin: EdgeInsets.all(8),
-      decoration: BoxDecoration(
-        color: Colors.grey[200],
-        borderRadius: BorderRadius.circular(10),
-      ),
-      child: ListTile(
-        leading: Icon(Icons.picture_as_pdf, color: Colors.red),
-        title: Text('File Title.pdf'),
-        subtitle: Text('313kb. 31 Aug, 2022',
-            style: TextStyle(fontSize: 16, color: Colors.grey)),
-        trailing: Icon(Icons.download, color: Colors.blue),
-        onTap: () {},
-      ),
-    );
-  }
-
   @override
   Widget build(BuildContext context) {
+    double screenWidth = MediaQuery.of(context).size.width;
+    double screenHeight = MediaQuery.of(context).size.height;
+    Widget buildContainer(BuildContext context, String fileImg,
+        String fileTitle, String filestor, String fileDate) {
+      return Container(
+        margin: EdgeInsets.all(8),
+        decoration: BoxDecoration(
+          color: const Color.fromARGB(255, 247, 246, 246),
+          borderRadius: BorderRadius.circular(10),
+        ),
+        child: ListTile(
+          leading: Image(
+            image: AssetImage(fileImg),
+            width: screenWidth * 0.08,
+          ),
+          title: Text('$fileTitle'),
+          subtitle: Text('$filestor. $fileDate',
+              style:
+                  TextStyle(fontSize: screenWidth * 0.04, color: Colors.grey)),
+          trailing: ImageIcon(
+            AssetImage("assets/images/download.png"),
+            color: Colors.blue,
+            size: screenWidth * 0.05,
+          ),
+          onTap: () {},
+        ),
+      );
+    }
+
     return Scaffold(
       appBar: AppBar(
         title: Row(
@@ -37,18 +48,59 @@ class AttachmentPage extends StatelessWidget {
         slivers: <Widget>[
           SliverList(
               delegate: SliverChildListDelegate([
-            Text('last week'),
-            buildContainer(),
-            buildContainer(),
-            buildContainer(),
-            Text('12/2/2018'),
-            buildContainer(),
-            buildContainer(),
-            Text('12/2/2018'),
-            buildContainer(),
-            buildContainer(),
-            buildContainer(),
-            buildContainer(),
+            Padding(
+              padding: EdgeInsets.fromLTRB(screenWidth * 0.03, 0, 0, 0),
+              child: Text(
+                'Last week',
+                style: TextStyle(
+                    fontFamily: "Robot",
+                    fontWeight: FontWeight.w400,
+                    fontSize: screenWidth * 0.04,
+                    color: Colors.grey),
+              ),
+            ),
+            buildContainer(context, "assets/images/file.png", "File Title.pdf",
+                "313 KB ", ". 31 Aug, 2022 "),
+            buildContainer(context, "assets/images/pdf.png", "File Title.pdf",
+                "313 KB ", ". 31 Aug, 2022 "),
+            buildContainer(context, "assets/images/image.png", "File Title.pdf",
+                "313 KB ", ". 31 Aug, 2022 "),
+            Padding(
+              padding: EdgeInsets.fromLTRB(screenWidth * 0.03, 0, 0, 0),
+              child: Text(
+                '12/2/2018',
+                style: TextStyle(
+                    fontFamily: "Robot",
+                    fontWeight: FontWeight.w400,
+                    fontSize: screenWidth * 0.04,
+                    color: Colors.grey),
+              ),
+            ),
+            buildContainer(context, "assets/images/file.png", "File Title.pdf",
+                "313 KB ", ". 31 Aug, 2022 "),
+            buildContainer(context, "assets/images/pdf.png", "File Title.pdf",
+                "313 KB ", ". 31 Aug, 2022 "),
+            buildContainer(context, "assets/images/image.png", "File Title.pdf",
+                "313 KB ", ". 31 Aug, 2022 "),
+            Padding(
+              padding: EdgeInsets.fromLTRB(screenWidth * 0.03, 0, 0, 0),
+              child: Text(
+                '12/2/2018',
+                style: TextStyle(
+                    fontFamily: "Robot",
+                    fontWeight: FontWeight.w400,
+                    fontSize: screenWidth * 0.04,
+                    color: Colors.grey),
+              ),
+            ),
+            buildContainer(context, "assets/images/pdf.png", "File Title.pdf",
+                "313 KB ", ". 31 Aug, 2022 "),
+            buildContainer(context, "assets/images/pdf.png", "File Title.pdf",
+                "313 KB ", ". 31 Aug, 2022 "),
+            buildContainer(context, "assets/images/pdf.png", "File Title.pdf",
+                "313 KB ", ". 31 Aug, 2022 "),
+            buildContainer(context, "assets/images/pdf.png", "File Title.pdf",
+                "313 KB ", ". 31 Aug, 2022 "),
           ])),
         ],
       ),
