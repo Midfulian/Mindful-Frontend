@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:gr_project/Views/Pages/login_screen.dart';
-
-import '../../Components/forgot_pass_btn.dart';
+import 'package:gr_project/Views/Components/forgot_pass_btn.dart';
+import 'package:gr_project/Views/Pages/user&therapist-(start,login,reset_password,onBoarding)/login_screen.dart';
 
 class DoneScreen extends StatelessWidget {
   const DoneScreen({super.key});
@@ -50,7 +49,7 @@ class DoneScreen extends StatelessWidget {
                         buildContinueButton(context, () {
                           Navigator.push(
                             context,
-                            MaterialPageRoute(builder: (context) => LoginScreen()),
+                            MaterialPageRoute(builder: (context) => const LoginScreen()),
                           );
                         }),
                       ],

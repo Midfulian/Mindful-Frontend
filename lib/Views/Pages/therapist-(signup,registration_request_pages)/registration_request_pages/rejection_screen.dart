@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-
-import '../Components/rejection_btn.dart';
+import 'package:gr_project/Views/Components/rejection_btn.dart';
 
 class RejectionScreen extends StatelessWidget {
   const RejectionScreen({super.key});

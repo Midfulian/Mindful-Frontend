@@ -1,9 +1,9 @@
 // ignore_for_file: file_names
 import 'package:flutter/material.dart';
 
-import '../Components/onBoarding_back_btn.dart';
-import '../Components/onBoarding_continue_btn.dart';
-import '../Components/onBoarding_skip_btn.dart';
+import '../../Components/onBoarding_back_btn.dart';
+import '../../Components/onBoarding_continue_btn.dart';
+import '../../Components/onBoarding_skip_btn.dart';
 import 'package:gr_project/constants.dart';
 
 class OnboardingScreen extends StatefulWidget {

@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 
 class AttachmentPage extends StatelessWidget {
+  const AttachmentPage({super.key});
+
   @override
   Widget build(BuildContext context) {
     double screenWidth = MediaQuery.of(context).size.width;
-    double screenHeight = MediaQuery.of(context).size.height;
     Widget buildContainer(BuildContext context, String fileImg,
         String fileTitle, String filestor, String fileDate) {
       return Container(

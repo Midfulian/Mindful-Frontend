@@ -1,11 +1,11 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:gr_project/Controller/auth_controller.dart';
-import 'package:gr_project/Views/Pages/forgot_password_screen/email_screen.dart';
+import 'package:gr_project/Views/Pages/user&therapist-(start,login,reset_password,onBoarding)/reset_password_screens/email_screen.dart';
+import 'package:gr_project/Views/Pages/user-(signup,assessment_pages)/signup_screen_user.dart';
 
-import '../Components/formField.dart';
-import 'main_screens/Nav_screen.dart';
-import 'signup_screen_user.dart';
+import '../../Components/formField.dart';
+import '../main_screens/Nav_screen.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -31,15 +31,15 @@ class _LoginScreenState extends State<LoginScreen> {
           key: formKey,
           child: Column(
             children: [
-              Stack(
+              const Stack(
                 alignment: Alignment.center,
                 children: [
-                  const Image(
+                  Image(
                     image: AssetImage('assets/images/Login.png'),
                     fit: BoxFit.cover,
                     width: double.infinity,
                   ),
-                  const Column(
+                  Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Text(
@@ -215,7 +215,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => SignUpScreen(),
+                          builder: (context) => SignupScreenUser(),
                         ),
                       );
                     },

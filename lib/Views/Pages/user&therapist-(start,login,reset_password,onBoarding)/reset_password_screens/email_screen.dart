@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
-
-import '../../Components/forgot_pass_appBar.dart';
-import '../../Components/forgot_pass_btn.dart';
-import '../../Components/forgot_pass_progress_indicator.dart';
-import '../../Components/formField.dart';
+import 'package:gr_project/Views/Components/forgot_pass_appBar.dart';
+import 'package:gr_project/Views/Components/forgot_pass_btn.dart';
+import 'package:gr_project/Views/Components/forgot_pass_progress_indicator.dart';
+import 'package:gr_project/Views/Components/formField.dart';
 import 'oto_screen.dart';
 
 class EmailScreen extends StatelessWidget {

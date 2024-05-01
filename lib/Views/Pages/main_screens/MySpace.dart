@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:gr_project/models/note_provider.dart';
+import 'package:gr_project/Model/note_provider.dart';
 import 'package:provider/provider.dart';
 import 'package:flutter_sound/flutter_sound.dart';
 

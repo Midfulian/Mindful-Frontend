@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
-
-import '../../Components/assessment_bar.dart';
-import '../../Components/assessment_btn.dart';
-import '../../Components/assessment_sixth_questions.dart';
+import 'package:gr_project/Views/Components/assessment_bar.dart';
+import 'package:gr_project/Views/Components/assessment_btn.dart';
+import 'package:gr_project/Views/Components/assessment_sixth_questions.dart';
 import 'assessment_seventh.dart';
 
 class AssessmentSixth extends StatefulWidget {
@@ -14,15 +13,15 @@ class AssessmentSixth extends StatefulWidget {
 
 class _AssessmentSixthState extends State<AssessmentSixth> {
   @override
-  @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: buildAppBar(context, "Assessment", "6 of 7"),
       body: LayoutBuilder(
         builder: (BuildContext context, BoxConstraints constraints) {
-          final double screenWidth = constraints.maxWidth;
-          final double screenHeight = constraints.maxHeight;
+          final double screenWidth = MediaQuery.of(context).size.width;
+          final double screenHeight = MediaQuery.of(context).size.height;
+          final double textScaleFactor = MediaQuery.of(context).textScaleFactor;
 
           return SingleChildScrollView(
             child: Column(
@@ -33,14 +32,14 @@ class _AssessmentSixthState extends State<AssessmentSixth> {
                 Text(
                   "Have you sought ",
                   style: TextStyle(
-                    fontSize: screenWidth * 0.06,
+                    fontSize: 16 * textScaleFactor,
                     fontWeight: FontWeight.w600,
                   ),
                 ),
                 Text(
                   "professional help before?",
                   style: TextStyle(
-                    fontSize: screenWidth * 0.06,
+                    fontSize: 16 * textScaleFactor,
                     fontWeight: FontWeight.w600,
                   ),
                 ),
@@ -51,12 +50,15 @@ class _AssessmentSixthState extends State<AssessmentSixth> {
                 SizedBox(
                   height: screenHeight * 0.37,
                 ),
-                buildContinueButton(() {
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => AssessmentSeventh()));
-                }),
+                Padding(
+                  padding: EdgeInsets.symmetric(horizontal: screenWidth * 0.06),
+                  child: buildContinueButton(() {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => AssessmentSeventh()));
+                  }),
+                ),
               ],
             ),
           );

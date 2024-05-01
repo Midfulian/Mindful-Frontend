@@ -1,18 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:gr_project/Controller/auth_controller.dart';
+import 'package:gr_project/Views/Pages/user&therapist-(start,login,reset_password,onBoarding)/login_screen.dart';
 
-import '../../Model/SignupUserRequest.dart';
-import 'assessment_screen/assessment_first.dart';
-import 'login_screen.dart';
+import '../../../Model/SignupUserRequest.dart';
+import 'assessment_pages/assessment_first.dart';
 
-class SignUpScreen extends StatefulWidget {
-  const SignUpScreen({super.key});
+class SignupScreenUser extends StatefulWidget {
+  const SignupScreenUser({super.key});
 
   @override
-  State<SignUpScreen> createState() => _SignUpProcess1State();
+  State<SignupScreenUser> createState() => _SignUpProcess1State();
 }
 
-class _SignUpProcess1State extends State<SignUpScreen> {
+class _SignUpProcess1State extends State<SignupScreenUser> {
   var firstNameController = TextEditingController();
   var lastNameController = TextEditingController();
   var emailController = TextEditingController();
@@ -341,32 +341,37 @@ class _SignUpProcess1State extends State<SignUpScreen> {
                           minimumSize: const Size(double.infinity, 50),
                         ),
                         onPressed: () async {
-                          if (formKey.currentState!.validate()) {
-                            try {
-                              bool signUpSuccess = await _auth.signUp(
-                                SignUserRequest(
-                                  first_name: firstNameController.text,
-                                  last_name: lastNameController.text,
-                                  email: emailController.text,
-                                  phoneNumber: phoneController.text,
-                                  languagePreference: "en",
-                                  country: "EG",
-                                  photoURL: 'http://www.google.com/ziad',
-                                  profile_picture: 'http://www.google.com/ziad',
-                                ),
-                                passwordController.text,
-                              );
-                              if (signUpSuccess) {
-                                Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                      builder: (context) => const AssessmentFirst()),
-                                );
-                              }
-                            } catch (e) {
-                              print(e);
-                            }
-                          }
+                          // if (formKey.currentState!.validate()) {
+                          //   try {
+                          //     bool signUpSuccess = await _auth.signUp(
+                          //       SignUserRequest(
+                          //         first_name: firstNameController.text,
+                          //         last_name: lastNameController.text,
+                          //         email: emailController.text,
+                          //         phoneNumber: phoneController.text,
+                          //         languagePreference: "en",
+                          //         country: "EG",
+                          //         photoURL: 'http://www.google.com/ziad',
+                          //         profile_picture: 'http://www.google.com/ziad',
+                          //       ),
+                          //       passwordController.text,
+                          //     );
+                          //     if (signUpSuccess) {
+                          //       Navigator.push(
+                          //         context,
+                          //         MaterialPageRoute(
+                          //             builder: (context) => const AssessmentFirst()),
+                          //       );
+                          //     }
+                          //   } catch (e) {
+                          //     print(e);
+                          //   }
+                          // }
+                          Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                          builder: (context) => const AssessmentFirst()),
+                                    );
                         },
                         child: const Text(
                           "Sign up",

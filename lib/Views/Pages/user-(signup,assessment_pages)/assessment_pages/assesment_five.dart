@@ -2,42 +2,44 @@ import 'package:flutter/material.dart';
 import 'package:gr_project/Views/Components/assessment_bar.dart';
 import 'package:gr_project/Views/Components/assessment_btn.dart';
 
-import 'assesment_third.dart';
+import 'assessment_sixth.dart';
 
-class AssessmentSecond extends StatefulWidget {
-  const AssessmentSecond({super.key});
+class AssesmentFive extends StatefulWidget {
+  const AssesmentFive({super.key});
 
   @override
-  State<AssessmentSecond> createState() => _AssessmentSecondState();
+  State<AssesmentFive> createState() => _AssesmentFiveState();
 }
 
-class _AssessmentSecondState extends State<AssessmentSecond> {
+class _AssesmentFiveState extends State<AssesmentFive> {
   double _value = 0;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
-      appBar: buildAppBar(context, "Assessment", "2 of 7"),
+      appBar: buildAppBar(context, "Assessment", "5 of 7"),
       body: LayoutBuilder(
         builder: (BuildContext context, BoxConstraints constraints) {
-          final double screenWidth = constraints.maxWidth;
-          final double screenHeight = constraints.maxHeight;
+          final double screenWidth = MediaQuery.of(context).size.width;
+          final double screenHeight = MediaQuery.of(context).size.height;
+          final double textScaleFactor = MediaQuery.of(context).textScaleFactor;
+
           return Column(
             children: [
               SizedBox(
                 height: screenHeight * 0.07,
               ),
               Text(
-                "How would you rate your",
+                "How would you describe",
                 style: TextStyle(
-                  fontSize: screenWidth * 0.06,
+                  fontSize: 16 * textScaleFactor,
                   fontWeight: FontWeight.w600,
                 ),
               ),
               Text(
-                "sleep quality?",
+                "your mood?",
                 style: TextStyle(
-                  fontSize: screenWidth * 0.06,
+                  fontSize: 16 * textScaleFactor,
                   fontWeight: FontWeight.w600,
                 ),
               ),
@@ -46,7 +48,7 @@ class _AssessmentSecondState extends State<AssessmentSecond> {
               ),
               Expanded(
                 child: Padding(
-                  padding: EdgeInsets.fromLTRB(screenWidth * 0.08, 0, 0, 0),
+                  padding: EdgeInsets.symmetric(horizontal: screenWidth * 0.08),
                   child: Row(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -57,15 +59,15 @@ class _AssessmentSecondState extends State<AssessmentSecond> {
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                             buildColumn("Excellent", "7-9 hours",
-                                "assets/images/small_clock.png"),
+                                "assets/images/small_clock.png", textScaleFactor),
                             buildColumn("Good", "6-7 hours",
-                                "assets/images/small_clock.png"),
+                                "assets/images/small_clock.png", textScaleFactor),
                             buildColumn("Fair", "5 hours",
-                                "assets/images/small_clock.png"),
+                                "assets/images/small_clock.png", textScaleFactor),
                             buildColumn("Poor", "3-4 hours",
-                                "assets/images/small_clock.png"),
+                                "assets/images/small_clock.png", textScaleFactor),
                             buildColumn("Worst", "<3 hours",
-                                "assets/images/small_clock.png"),
+                                "assets/images/small_clock.png", textScaleFactor),
                           ],
                         ),
                       ),
@@ -99,8 +101,7 @@ class _AssessmentSecondState extends State<AssessmentSecond> {
                       Expanded(
                         flex: 1,
                         child: Padding(
-                          padding:
-                              EdgeInsets.fromLTRB(0, 0, screenWidth * 0.1, 0),
+                          padding: EdgeInsets.symmetric(horizontal: screenWidth * 0.1),
                           child: Column(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
@@ -124,13 +125,13 @@ class _AssessmentSecondState extends State<AssessmentSecond> {
                 height: screenHeight * 0.15,
               ),
               Padding(
-                padding: EdgeInsets.fromLTRB(0, 0, 0, screenWidth * 0.06),
+                padding: EdgeInsets.symmetric(horizontal: screenWidth * 0.06),
                 child: buildContinueButton(
-                  () {
+                      () {
                     Navigator.push(
                         context,
                         MaterialPageRoute(
-                            builder: (context) => AssesmentThird()));
+                            builder: (context) => AssessmentSixth()));
                   },
                 ),
               ),
@@ -141,7 +142,7 @@ class _AssessmentSecondState extends State<AssessmentSecond> {
     );
   }
 
-  Column buildColumn(String text1, String text2, String image) {
+  Column buildColumn(String text1, String text2, String image, double textScaleFactor) {
     return Column(
       mainAxisAlignment: MainAxisAlignment.start,
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -150,32 +151,29 @@ class _AssessmentSecondState extends State<AssessmentSecond> {
           text1,
           style: TextStyle(
             color: Color(0xFF9E9E9E),
-            fontSize: MediaQuery.of(context).size.width * 0.04,
+            fontSize: 14 * textScaleFactor,
             fontFamily: 'Roboto',
             fontWeight: FontWeight.w600,
             height: 0,
           ),
         ),
         Padding(
-          padding: EdgeInsets.fromLTRB(
-              0, MediaQuery.of(context).size.width * 0.01, 0, 0),
+          padding: EdgeInsets.symmetric(vertical: 10),
           child: Row(
             children: [
               Padding(
-                padding: EdgeInsets.fromLTRB(
-                    MediaQuery.of(context).size.width * 0.005, 0, 0, 0),
+                padding: EdgeInsets.symmetric(horizontal: 5),
                 child: Image(
                   image: AssetImage(image),
                 ),
               ),
               Padding(
-                padding: EdgeInsets.fromLTRB(
-                    MediaQuery.of(context).size.width * 0.005, 0, 0, 0),
+                padding: EdgeInsets.symmetric(horizontal: 5),
                 child: Text(
                   text2,
                   style: TextStyle(
                     color: Color(0xFF9E9E9E),
-                    fontSize: MediaQuery.of(context).size.width * 0.04,
+                    fontSize: 14 * textScaleFactor,
                     fontFamily: 'Roboto',
                     fontWeight: FontWeight.w600,
                     height: 0,

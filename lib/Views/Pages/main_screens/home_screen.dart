@@ -1,32 +1,31 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:gr_project/Model/MoodData.dart';
 import 'package:gr_project/Views/Pages/book_screen/doctor_profile_screen.dart';
 import 'package:gr_project/Views/Pages/doctor_service_page.dart';
 import 'package:gr_project/Views/Pages/notifications_screen.dart';
-import 'package:gr_project/models/horizontal_list.dart';
+import 'package:gr_project/Model/horizontal_list.dart';
 import 'package:syncfusion_flutter_charts/charts.dart';
 
 import '../test_screen.dart';
 
-class HomePages extends StatefulWidget {
-  const HomePages({super.key});
+class HomeUserPage extends StatefulWidget {
+  const HomeUserPage({super.key});
 
   @override
-  State<HomePages> createState() => _HomePagesState();
+  State<HomeUserPage> createState() => _HomeUserPageState();
 }
 
-class _HomePagesState extends State<HomePages> {
+class _HomeUserPageState extends State<HomeUserPage> {
   Future<List<HorizontalList>> getList = getHorizontalList();
-  late List<MoodData> data = [
-    MoodData('Mon', 'Happy'),
-    MoodData('Tue', 'Good'),
-    MoodData('Wed', 'Meh'),
-    MoodData('Thu', 'Bad'),
-    MoodData('Fri', 'Awful'),
-    MoodData('Sat', 'Happy'),
-    MoodData('Sun', 'Good'),
-  ];
+  // late List<MoodData> data = [
+  //   MoodData('Mon', 'Happy'),
+  //   MoodData('Tue', 'Good'),
+  //   MoodData('Wed', 'Meh'),
+  //   MoodData('Thu', 'Bad'),
+  //   MoodData('Fri', 'Awful'),
+  //   MoodData('Sat', 'Happy'),
+  //   MoodData('Sun', 'Good'),
+  // ];
 
   @override
   Widget build(BuildContext context) {
@@ -366,307 +365,307 @@ class _HomePagesState extends State<HomePages> {
                       ),
                     ),
                   ),
-                  Padding(
-                    padding: EdgeInsets.fromLTRB(
-                        screenWidth * 0.04, screenWidth * 0.04, 0, 0),
-                    child: SfCartesianChart(
-                        primaryXAxis: CategoryAxis(),
-                        title: ChartTitle(text: 'Weekly Mood Analysis'),
-                        legend: Legend(isVisible: true),
-                        tooltipBehavior: TooltipBehavior(enable: true),
-                        series: <CartesianSeries<MoodData, String>>[
-                          LineSeries<MoodData, String>(
-                              dataSource: data,
-                              xValueMapper: (MoodData mood, _) => mood.day,
-                              yValueMapper: (MoodData mood, _) =>
-                                  MoodData.moodToNumber(mood.mood),
-                              name: 'Mood',
-                              dataLabelSettings:
-                                  DataLabelSettings(isVisible: true))
-                        ]),
-                  ),
-                  Padding(
-                    padding: EdgeInsets.fromLTRB(
-                        screenWidth * 0.04, screenWidth * 0.04, 0, 0),
-                    child: Row(
-                      children: [
-                        Text(
-                          "Recommended for you",
-                          style: TextStyle(
-                            fontSize: screenWidth * 0.04,
-                            fontWeight: FontWeight.w500,
-                            color: Colors.black,
-                          ),
-                        ),
-                        Padding(
-                          padding:
-                              EdgeInsets.fromLTRB(screenWidth * 0.35, 0, 0, 0),
-                          child: Text(
-                            "See all",
-                            style: TextStyle(
-                              fontSize: screenWidth * 0.035,
-                              fontWeight: FontWeight.w400,
-                              color: Colors.blue,
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                  Flexible(
-                    child: FutureBuilder(
-                        future: getList,
-                        builder: (context, snapshot) {
-                          if (snapshot.connectionState ==
-                              ConnectionState.waiting) {
-                            return const Center(
-                              child: CircularProgressIndicator(),
-                            );
-                          } else if (snapshot.hasError) {
-                            return Center(
-                              child: Text(
-                                "Error: ${snapshot.error}",
-                              ),
-                            );
-                          } else {
-                            List<HorizontalList>? data = snapshot.data;
-                            return ListView.builder(
-                              itemCount: data!.length,
-                              scrollDirection: Axis.horizontal,
-                              itemBuilder: (context, index) {
-                                return Padding(
-                                  padding: EdgeInsets.fromLTRB(
-                                      screenWidth * 0.03,
-                                      screenWidth * 0.01,
-                                      screenWidth * 0.03,
-                                      0),
-                                  child: Container(
-                                    height: screenHeight * 0.01,
-                                    width: screenWidth - 10,
-                                    decoration: BoxDecoration(
-                                      color: Colors.white38,
-                                      borderRadius: BorderRadius.circular(10),
-                                      border: Border.all(
-                                          color: Colors.grey.shade300),
-                                    ),
-                                    child: Column(
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.start,
-                                      children: [
-                                        ListTile(
-                                          leading: CircleAvatar(
-                                            backgroundImage: AssetImage(
-                                              data[index].docImage,
-                                            ),
-                                          ),
-                                          title: Text(
-                                            data[index].docName,
-                                            style: TextStyle(
-                                              color: Colors.black87,
-                                              fontSize: screenWidth * 0.04,
-                                            ),
-                                          ),
-                                          subtitle: Text(
-                                            data[index].docSpecialist,
-                                            style: TextStyle(
-                                              color: Colors.black87,
-                                              fontSize: screenWidth * 0.04,
-                                            ),
-                                          ),
-                                          trailing: TextButton.icon(
-                                            onPressed: () {},
-                                            icon: Icon(
-                                              Icons.star,
-                                              size: screenWidth * 0.05,
-                                              color: Colors.amber,
-                                            ),
-                                            label: Text(
-                                              "Top therapists",
-                                              style: TextStyle(
-                                                fontSize: screenWidth * 0.04,
-                                              ),
-                                            ),
-                                          ),
-                                        ),
-                                        Padding(
-                                          padding: EdgeInsets.only(
-                                              left: screenWidth * 0.18),
-                                          child: Row(
-                                            children: [
-                                              Icon(
-                                                Icons.star,
-                                                color: Colors.amber,
-                                                size: screenWidth * 0.04,
-                                              ),
-                                              Icon(
-                                                Icons.star,
-                                                color: Colors.amber,
-                                                size: screenWidth * 0.04,
-                                              ),
-                                              Icon(
-                                                Icons.star,
-                                                color: Colors.amber,
-                                                size: screenWidth * 0.04,
-                                              ),
-                                              Icon(
-                                                Icons.star,
-                                                color: Colors.amber,
-                                                size: screenWidth * 0.04,
-                                              ),
-                                              Icon(
-                                                Icons.star,
-                                                color: Colors.amber,
-                                                size: screenWidth * 0.04,
-                                              ),
-                                            ],
-                                          ),
-                                        ),
-                                        Padding(
-                                          padding: EdgeInsets.only(
-                                              left: screenWidth * 0.18,
-                                              top: screenWidth * 0.01),
-                                          child: Text(
-                                            data[index].rate,
-                                          ),
-                                        ),
-                                        Padding(
-                                          padding: EdgeInsets.only(
-                                              left: screenWidth * 0.04,
-                                              top: screenWidth * 0.01),
-                                          child: const Text(
-                                            "Inerests:",
-                                          ),
-                                        ),
-                                        Padding(
-                                          padding: EdgeInsets.only(
-                                              left: screenWidth * 0.02,
-                                              top: screenWidth * 0.01),
-                                          child: Row(
-                                            children: [
-                                              Container(
-                                                height: screenHeight * 0.05,
-                                                width: screenWidth * 0.3,
-                                                decoration: BoxDecoration(
-                                                  color:
-                                                      Colors.lightBlue.shade50,
-                                                  borderRadius:
-                                                      BorderRadius.circular(30),
-                                                ),
-                                                child: const Center(
-                                                  child: Text(
-                                                    "Description",
-                                                    style: TextStyle(
-                                                      color: Colors.blue,
-                                                    ),
-                                                  ),
-                                                ),
-                                              ),
-                                              const SizedBox(width: 5),
-                                              Container(
-                                                height: screenHeight * 0.05,
-                                                width: screenWidth * 0.6,
-                                                decoration: BoxDecoration(
-                                                  color:
-                                                      Colors.lightBlue.shade50,
-                                                  borderRadius:
-                                                      BorderRadius.circular(30),
-                                                ),
-                                                child: const Center(
-                                                  child: Text(
-                                                    "Specific Phobia and Social Phobia",
-                                                    style: TextStyle(
-                                                      color: Colors.blue,
-                                                    ),
-                                                  ),
-                                                ),
-                                              ),
-                                            ],
-                                          ),
-                                        ),
-                                        Padding(
-                                          padding: EdgeInsets.only(
-                                              left: screenWidth * 0.04,
-                                              top: screenWidth * 0.01),
-                                          child: Row(
-                                            children: [
-                                              const Icon(
-                                                Icons.money,
-                                                color: Colors.green,
-                                              ),
-                                              Text(
-                                                "${data[index].price.toString()} EGP",
-                                                style: const TextStyle(
-                                                  color: Colors.green,
-                                                ),
-                                              ),
-                                              Text(
-                                                "/ ${data[index].perMinute} min",
-                                                style: const TextStyle(
-                                                  color: Colors.black,
-                                                ),
-                                              ),
-                                            ],
-                                          ),
-                                        ),
-                                        Padding(
-                                          padding: EdgeInsets.only(
-                                              left: screenWidth * 0.07,
-                                              top: screenWidth * 0.05),
-                                          child: Row(
-                                            children: [
-                                              ElevatedButton(
-                                                onPressed: () {
-                                                  Navigator.push(
-                                                    context,
-                                                    MaterialPageRoute(
-                                                      builder: (context) =>
-                                                          DoctorServicePage(),
-                                                    ),
-                                                  );
-                                                },
-                                                style: ElevatedButton.styleFrom(
-                                                  backgroundColor:
-                                                      const Color.fromARGB(
-                                                          255, 237, 236, 236),
-                                                ),
-                                                child: const Text(
-                                                  "View profile",
-                                                  style: TextStyle(
-                                                      color: Colors.blue),
-                                                ),
-                                              ),
-                                              SizedBox(
-                                                  width: screenWidth * 0.01),
-                                              Padding(
-                                                padding: EdgeInsets.fromLTRB(
-                                                    screenWidth * 0.2, 0, 0, 0),
-                                                child: ElevatedButton(
-                                                  onPressed: () {
-                                                    Navigator.push(
-                                                      context,
-                                                      MaterialPageRoute(
-                                                        builder: (context) =>
-                                                            DoctorProfilePage(),
-                                                      ),
-                                                    );
-                                                  },
-                                                  child: const Text(
-                                                    "BooK now",
-                                                  ),
-                                                ),
-                                              ),
-                                            ],
-                                          ),
-                                        ),
-                                      ],
-                                    ),
-                                  ),
-                                );
-                              },
-                            );
-                          }
-                        }),
-                  ),
+                  // Padding(
+                  //   padding: EdgeInsets.fromLTRB(
+                  //       screenWidth * 0.04, screenWidth * 0.04, 0, 0),
+                  //   child: SfCartesianChart(
+                  //       primaryXAxis: CategoryAxis(),
+                  //       title: ChartTitle(text: 'Weekly Mood Analysis'),
+                  //       legend: Legend(isVisible: true),
+                  //       tooltipBehavior: TooltipBehavior(enable: true),
+                  //       series: <CartesianSeries<MoodData, String>>[
+                  //         LineSeries<MoodData, String>(
+                  //             dataSource: data,
+                  //             xValueMapper: (MoodData mood, _) => mood.day,
+                  //             yValueMapper: (MoodData mood, _) =>
+                  //                 MoodData.moodToNumber(mood.mood),
+                  //             name: 'Mood',
+                  //             dataLabelSettings:
+                  //                 DataLabelSettings(isVisible: true))
+                  //       ]),
+                  // ),
+                  // Padding(
+                  //   padding: EdgeInsets.fromLTRB(
+                  //       screenWidth * 0.04, screenWidth * 0.04, 0, 0),
+                  //   child: Row(
+                  //     children: [
+                  //       Text(
+                  //         "Recommended for you",
+                  //         style: TextStyle(
+                  //           fontSize: screenWidth * 0.04,
+                  //           fontWeight: FontWeight.w500,
+                  //           color: Colors.black,
+                  //         ),
+                  //       ),
+                  //       Padding(
+                  //         padding:
+                  //             EdgeInsets.fromLTRB(screenWidth * 0.35, 0, 0, 0),
+                  //         child: Text(
+                  //           "See all",
+                  //           style: TextStyle(
+                  //             fontSize: screenWidth * 0.035,
+                  //             fontWeight: FontWeight.w400,
+                  //             color: Colors.blue,
+                  //           ),
+                  //         ),
+                  //       ),
+                  //     ],
+                  //   ),
+                  // ),
+                  // Flexible(
+                  //   child: FutureBuilder(
+                  //       future: getList,
+                  //       builder: (context, snapshot) {
+                  //         if (snapshot.connectionState ==
+                  //             ConnectionState.waiting) {
+                  //           return const Center(
+                  //             child: CircularProgressIndicator(),
+                  //           );
+                  //         } else if (snapshot.hasError) {
+                  //           return Center(
+                  //             child: Text(
+                  //               "Error: ${snapshot.error}",
+                  //             ),
+                  //           );
+                  //         } else {
+                  //           List<HorizontalList>? data = snapshot.data;
+                  //           return ListView.builder(
+                  //             itemCount: data!.length,
+                  //             scrollDirection: Axis.horizontal,
+                  //             itemBuilder: (context, index) {
+                  //               return Padding(
+                  //                 padding: EdgeInsets.fromLTRB(
+                  //                     screenWidth * 0.03,
+                  //                     screenWidth * 0.01,
+                  //                     screenWidth * 0.03,
+                  //                     0),
+                  //                 child: Container(
+                  //                   height: screenHeight * 0.01,
+                  //                   width: screenWidth - 10,
+                  //                   decoration: BoxDecoration(
+                  //                     color: Colors.white38,
+                  //                     borderRadius: BorderRadius.circular(10),
+                  //                     border: Border.all(
+                  //                         color: Colors.grey.shade300),
+                  //                   ),
+                  //                   child: Column(
+                  //                     crossAxisAlignment:
+                  //                         CrossAxisAlignment.start,
+                  //                     children: [
+                  //                       ListTile(
+                  //                         leading: CircleAvatar(
+                  //                           backgroundImage: AssetImage(
+                  //                             data[index].docImage,
+                  //                           ),
+                  //                         ),
+                  //                         title: Text(
+                  //                           data[index].docName,
+                  //                           style: TextStyle(
+                  //                             color: Colors.black87,
+                  //                             fontSize: screenWidth * 0.04,
+                  //                           ),
+                  //                         ),
+                  //                         subtitle: Text(
+                  //                           data[index].docSpecialist,
+                  //                           style: TextStyle(
+                  //                             color: Colors.black87,
+                  //                             fontSize: screenWidth * 0.04,
+                  //                           ),
+                  //                         ),
+                  //                         trailing: TextButton.icon(
+                  //                           onPressed: () {},
+                  //                           icon: Icon(
+                  //                             Icons.star,
+                  //                             size: screenWidth * 0.05,
+                  //                             color: Colors.amber,
+                  //                           ),
+                  //                           label: Text(
+                  //                             "Top therapists",
+                  //                             style: TextStyle(
+                  //                               fontSize: screenWidth * 0.04,
+                  //                             ),
+                  //                           ),
+                  //                         ),
+                  //                       ),
+                  //                       Padding(
+                  //                         padding: EdgeInsets.only(
+                  //                             left: screenWidth * 0.18),
+                  //                         child: Row(
+                  //                           children: [
+                  //                             Icon(
+                  //                               Icons.star,
+                  //                               color: Colors.amber,
+                  //                               size: screenWidth * 0.04,
+                  //                             ),
+                  //                             Icon(
+                  //                               Icons.star,
+                  //                               color: Colors.amber,
+                  //                               size: screenWidth * 0.04,
+                  //                             ),
+                  //                             Icon(
+                  //                               Icons.star,
+                  //                               color: Colors.amber,
+                  //                               size: screenWidth * 0.04,
+                  //                             ),
+                  //                             Icon(
+                  //                               Icons.star,
+                  //                               color: Colors.amber,
+                  //                               size: screenWidth * 0.04,
+                  //                             ),
+                  //                             Icon(
+                  //                               Icons.star,
+                  //                               color: Colors.amber,
+                  //                               size: screenWidth * 0.04,
+                  //                             ),
+                  //                           ],
+                  //                         ),
+                  //                       ),
+                  //                       Padding(
+                  //                         padding: EdgeInsets.only(
+                  //                             left: screenWidth * 0.18,
+                  //                             top: screenWidth * 0.01),
+                  //                         child: Text(
+                  //                           data[index].rate,
+                  //                         ),
+                  //                       ),
+                  //                       Padding(
+                  //                         padding: EdgeInsets.only(
+                  //                             left: screenWidth * 0.04,
+                  //                             top: screenWidth * 0.01),
+                  //                         child: const Text(
+                  //                           "Inerests:",
+                  //                         ),
+                  //                       ),
+                  //                       Padding(
+                  //                         padding: EdgeInsets.only(
+                  //                             left: screenWidth * 0.02,
+                  //                             top: screenWidth * 0.01),
+                  //                         child: Row(
+                  //                           children: [
+                  //                             Container(
+                  //                               height: screenHeight * 0.05,
+                  //                               width: screenWidth * 0.3,
+                  //                               decoration: BoxDecoration(
+                  //                                 color:
+                  //                                     Colors.lightBlue.shade50,
+                  //                                 borderRadius:
+                  //                                     BorderRadius.circular(30),
+                  //                               ),
+                  //                               child: const Center(
+                  //                                 child: Text(
+                  //                                   "Description",
+                  //                                   style: TextStyle(
+                  //                                     color: Colors.blue,
+                  //                                   ),
+                  //                                 ),
+                  //                               ),
+                  //                             ),
+                  //                             const SizedBox(width: 5),
+                  //                             Container(
+                  //                               height: screenHeight * 0.05,
+                  //                               width: screenWidth * 0.6,
+                  //                               decoration: BoxDecoration(
+                  //                                 color:
+                  //                                     Colors.lightBlue.shade50,
+                  //                                 borderRadius:
+                  //                                     BorderRadius.circular(30),
+                  //                               ),
+                  //                               child: const Center(
+                  //                                 child: Text(
+                  //                                   "Specific Phobia and Social Phobia",
+                  //                                   style: TextStyle(
+                  //                                     color: Colors.blue,
+                  //                                   ),
+                  //                                 ),
+                  //                               ),
+                  //                             ),
+                  //                           ],
+                  //                         ),
+                  //                       ),
+                  //                       Padding(
+                  //                         padding: EdgeInsets.only(
+                  //                             left: screenWidth * 0.04,
+                  //                             top: screenWidth * 0.01),
+                  //                         child: Row(
+                  //                           children: [
+                  //                             const Icon(
+                  //                               Icons.money,
+                  //                               color: Colors.green,
+                  //                             ),
+                  //                             Text(
+                  //                               "${data[index].price.toString()} EGP",
+                  //                               style: const TextStyle(
+                  //                                 color: Colors.green,
+                  //                               ),
+                  //                             ),
+                  //                             Text(
+                  //                               "/ ${data[index].perMinute} min",
+                  //                               style: const TextStyle(
+                  //                                 color: Colors.black,
+                  //                               ),
+                  //                             ),
+                  //                           ],
+                  //                         ),
+                  //                       ),
+                  //                       Padding(
+                  //                         padding: EdgeInsets.only(
+                  //                             left: screenWidth * 0.07,
+                  //                             top: screenWidth * 0.05),
+                  //                         child: Row(
+                  //                           children: [
+                  //                             ElevatedButton(
+                  //                               onPressed: () {
+                  //                                 Navigator.push(
+                  //                                   context,
+                  //                                   MaterialPageRoute(
+                  //                                     builder: (context) =>
+                  //                                         DoctorServicePage(),
+                  //                                   ),
+                  //                                 );
+                  //                               },
+                  //                               style: ElevatedButton.styleFrom(
+                  //                                 backgroundColor:
+                  //                                     const Color.fromARGB(
+                  //                                         255, 237, 236, 236),
+                  //                               ),
+                  //                               child: const Text(
+                  //                                 "View profile",
+                  //                                 style: TextStyle(
+                  //                                     color: Colors.blue),
+                  //                               ),
+                  //                             ),
+                  //                             SizedBox(
+                  //                                 width: screenWidth * 0.01),
+                  //                             Padding(
+                  //                               padding: EdgeInsets.fromLTRB(
+                  //                                   screenWidth * 0.2, 0, 0, 0),
+                  //                               child: ElevatedButton(
+                  //                                 onPressed: () {
+                  //                                   Navigator.push(
+                  //                                     context,
+                  //                                     MaterialPageRoute(
+                  //                                       builder: (context) =>
+                  //                                           DoctorProfilePage(),
+                  //                                     ),
+                  //                                   );
+                  //                                 },
+                  //                                 child: const Text(
+                  //                                   "BooK now",
+                  //                                 ),
+                  //                               ),
+                  //                             ),
+                  //                           ],
+                  //                         ),
+                  //                       ),
+                  //                     ],
+                  //                   ),
+                  //                 ),
+                  //               );
+                  //             },
+                  //           );
+                  //         }
+                  //       }),
+                  // ),
                 ],
               );
             },

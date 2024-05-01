@@ -2,14 +2,16 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:gr_project/Views/Pages/TherapistPage/main_screen/attachment.dart';
-import 'package:gr_project/Views/Pages/login_screen.dart';
-import 'package:gr_project/Views/Pages/start_screen.dart';
 import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-
-import 'Views/Pages/onBoarding_screen.dart';
+import 'Views/Pages/main_screens/home_screen.dart';
+import 'Views/Pages/therapist-(signup,registration_request_pages)/signup_screen_therapist.dart';
+import 'Views/Pages/user&therapist-(start,login,reset_password,onBoarding)/login_screen.dart';
+import 'Views/Pages/user&therapist-(start,login,reset_password,onBoarding)/onBoarding_screen.dart';
+import 'Views/Pages/user&therapist-(start,login,reset_password,onBoarding)/start_screen.dart';
+import 'Views/Pages/user-(signup,assessment_pages)/assessment_pages/assessment_first.dart';
 import 'firebase_options.dart';
-import 'models/note_provider.dart';
+import 'Model/note_provider.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -39,9 +41,9 @@ class MainApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GetMaterialApp(
+    return const GetMaterialApp(
       debugShowCheckedModeBanner: false,
-      home: AttachmentPage(),
+      home: HomeUserPage(),
     );
   }
 }
