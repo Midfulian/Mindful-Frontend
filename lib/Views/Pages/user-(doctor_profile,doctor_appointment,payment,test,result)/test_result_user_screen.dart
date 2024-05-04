@@ -1,185 +1,171 @@
 import 'package:flutter/material.dart';
 
-import '../book_screen/doctor_profile_screen.dart';
 import '../doctor_service_page.dart';
+import 'doctor_profile_user_screen.dart';
 
-class TherapistPage extends StatelessWidget {
-  const TherapistPage({super.key});
+class ResultScreen extends StatefulWidget {
+  @override
+  _ResultScreenState createState() => _ResultScreenState();
+}
+
+class _ResultScreenState extends State<ResultScreen> {
+  int score = 15;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: LayoutBuilder(
-        builder: (BuildContext context, BoxConstraints constraints) {
-          return SingleChildScrollView(
-            child: ConstrainedBox(
-              constraints: BoxConstraints(minHeight: constraints.maxHeight),
+      appBar: AppBar(
+        backgroundColor: Colors.white,
+        elevation: 0.0,
+        title: FittedBox(
+          fit: BoxFit.scaleDown,
+          child: Text(
+            'Depression, Anxiety and Stress Scale',
+            style: TextStyle(color: Colors.black),
+            textAlign: TextAlign.center,
+          ),
+        ),
+        leading: IconButton(
+          icon: Icon(Icons.arrow_back, color: Colors.black),
+          onPressed: () => Navigator.of(context).pop(),
+        ),
+      ),
+      body: ListView(
+        padding: EdgeInsets.all(16.0),
+        children: [
+          Card(
+            color: Colors.grey[300],
+            child: Padding(
+              padding: EdgeInsets.all(16.0),
               child: Column(
                 children: [
-                  SizedBox(height: 50),
-                  Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 20),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
+                  RichText(
+                    text: TextSpan(
                       children: [
-                        Expanded(
-                          child: Container(
-                            height: 30,
-                            decoration: BoxDecoration(
-                              color: Color.fromRGBO(255, 255, 255, 1),
-                              borderRadius: BorderRadius.circular(10.0),
-                            ),
-                            child: TextField(
-                              decoration: InputDecoration(
-                                prefixIcon: Icon(Icons.search),
-                                hintText: 'Search',
-                                border: InputBorder.none,
-                                contentPadding:
-                                    EdgeInsets.symmetric(vertical: 10.0),
-                              ),
-                            ),
+                        TextSpan(
+                          text: 'Your Result is $score/50 \n',
+                          style: TextStyle(
+                            fontSize: 20,
+                            color: Colors.blue,
+                            fontWeight: FontWeight.bold,
                           ),
                         ),
-                        SizedBox(width: 10),
-                        Icon(Icons.format_list_numbered_rtl_rounded),
                       ],
                     ),
                   ),
+                  SizedBox(height: 10),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      scoreBox('Normal', Colors.green, 0, 10),
+                      scoreBox('Mid', Colors.yellow, 11, 20),
+                      scoreBox('Moderate', Colors.orange, 21, 30),
+                      scoreBox('Severe', Colors.red, 31, 40),
+                      scoreBox('Extremely Severe', Colors.red, 41, 50),
+                    ],
+                  ),
                   SizedBox(height: 20),
-                  TherapistCard(),
-                  SizedBox(height: 20),
-                  ListView.builder(
+                  RichText(
+                    text: TextSpan(
+                      children: [
+                        TextSpan(
+                          text: 'What dose it mean\n',
+                          style: TextStyle(
+                            fontSize: 20,
+                            color: Colors.blue,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                        TextSpan(
+                          text:
+                              'Text messages are used for personal, family, business, and social purposes. Governmental and non-governmental organizations use text messaging for communication between colleagues. In the 2010s, the sending of short informal messages became an accepted part of many cultures, as happened earlier with...',
+                          style: TextStyle(
+                            fontSize: 16,
+                            color: Colors.grey[850],
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ),
+          Card(
+          color: Colors.grey[300],
+          child: Padding(
+            padding: EdgeInsets.all(16.0),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                RichText(
+                  text: TextSpan(
+                    children: [
+                      TextSpan(
+                        text: 'Recommended Therapists',
+                        style: TextStyle(
+                          fontSize: 16,
+                          color: Colors.grey[850],
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ],
+                  ),
+                  textAlign: TextAlign.start,
+                ),
+                SizedBox(height: 20),
+                ListView.builder(
                     shrinkWrap: true,
                     physics: NeverScrollableScrollPhysics(),
                     itemCount: 5,
                     itemBuilder: (BuildContext context, int index) {
                       return Column(
                         children: [
-                          TherapistCardDown(),
+                          Container(
+                            decoration: BoxDecoration(
+                              color: Colors.white,
+                              borderRadius: BorderRadius.circular(10),
+                            ),
+                            child: TherapistCardDown()),
                           if (index != 4) SizedBox(height: 20),
                         ],
                       );
                     },
                   ),
-                  SizedBox(height: 20),
-                ],
-              ),
+              ],
             ),
-          );
-        },
+          ),
+        )
+        ],
       ),
     );
   }
-}
 
-class TherapistCard extends StatelessWidget {
-  const TherapistCard({super.key});
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      margin: EdgeInsets.symmetric(horizontal: 20),
-      decoration: BoxDecoration(
-        color: Color.fromRGBO(242, 242, 242, 1),
-        borderRadius: BorderRadius.circular(20),
-      ),
-      padding: EdgeInsets.all(16),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Row(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Image.asset('assets/images/Photo.png', width: 35, height: 35),
-              SizedBox(width: 10),
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    "Sahana V",
-                    style: TextStyle(
-                      color: Color.fromRGBO(51, 51, 51, 1),
-                      fontFamily: "Roboto",
-                      fontSize: 16,
-                      fontWeight: FontWeight.w400,
-                    ),
-                  ),
-                  Text(
-                    "Psychologist",
-                    style: TextStyle(
-                      color: Color.fromRGBO(24, 145, 197, 1),
-                      fontFamily: "Roboto",
-                      fontSize: 14,
-                      fontWeight: FontWeight.w400,
-                    ),
-                  ),
-                ],
-              ),
-            ],
+  Widget scoreBox(String label, Color color, int minScore, int maxScore) {
+    return Column(
+      children: [
+        if (score >= minScore && score <= maxScore)
+          Icon(Icons.arrow_drop_down, color: color, size: 30),
+        Container(
+          height: 30,
+          decoration: BoxDecoration(
+            color: color,
           ),
-          SizedBox(height: 16),
-          Row(
-            children: [
-              Icon(
-                Icons.calendar_today,
-                size: 20,
-                color: Color.fromRGBO(127, 140, 141, 1),
-              ),
-              SizedBox(width: 5),
-              Text(
-                "31st March 2024",
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 1),
+            child: Center(
+              child: Text(
+                label,
                 style: TextStyle(
-                  color: Color.fromRGBO(127, 140, 141, 1),
-                  fontFamily: "Rubic",
-                  fontSize: 12,
-                  fontWeight: FontWeight.w400,
-                ),
+                    color: Colors.white,
+                    fontSize: 16,
+                    fontWeight: FontWeight.bold),
+                textAlign: TextAlign.center,
               ),
-              SizedBox(width: 10),
-              Icon(
-                Icons.access_time,
-                size: 20,
-                color: Color.fromRGBO(127, 140, 141, 1),
-              ),
-              SizedBox(width: 5),
-              Text(
-                "7:30 PM-8:30 PM",
-                style: TextStyle(
-                  color: Color.fromRGBO(127, 140, 141, 1),
-                  fontFamily: "Rubic",
-                  fontSize: 12,
-                  fontWeight: FontWeight.w400,
-                ),
-              ),
-            ],
+            ),
           ),
-          SizedBox(height: 16),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Expanded(
-                child: GestureDetector(
-                  onTap: () {
-                    print('Join now button clicked');
-                    // Handle the button click event
-                  },
-                  child: Container(
-                    padding: EdgeInsets.symmetric(vertical: 10, horizontal: 20),
-                    decoration: BoxDecoration(
-                      color: Colors.blue,
-                      borderRadius: BorderRadius.circular(10),
-                    ),
-                    alignment: Alignment.center, // Add this line
-                    child: Text(
-                      'Join now',
-                      style: TextStyle(color: Color.fromRGBO(242, 242, 242, 1)),
-                    ),
-                  ),
-                ),
-              )
-            ],
-          ),
-        ],
-      ),
+        ),
+      ],
     );
   }
 }
@@ -295,23 +281,6 @@ class TherapistCardDown extends StatelessWidget {
                   ),
                 ),
               ),
-              const SizedBox(width: 5),
-              Container(
-                height: screenHeight * 0.05,
-                width: screenWidth * 0.6,
-                decoration: BoxDecoration(
-                  color: Colors.lightBlue.shade50,
-                  borderRadius: BorderRadius.circular(30),
-                ),
-                child: const Center(
-                  child: Text(
-                    "Specific Phobia and Social Phobia",
-                    style: TextStyle(
-                      color: Colors.blue,
-                    ),
-                  ),
-                ),
-              ),
             ],
           ),
         ),
@@ -369,7 +338,7 @@ class TherapistCardDown extends StatelessWidget {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => DoctorProfilePage(),
+                        builder: (context) => DoctorProfileUserPage(),
                       ),
                     );
                   },

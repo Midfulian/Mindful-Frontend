@@ -4,11 +4,15 @@ import 'package:get/get.dart';
 import 'package:gr_project/Views/Pages/TherapistPage/main_screen/attachment.dart';
 import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'Views/Pages/main_screens/home_screen.dart';
+import 'Views/Pages/user&therapist-(start,login,reset_password,onBoarding,notifications)/login_screen.dart';
+import 'Views/Pages/user&therapist-(start,login,reset_password,onBoarding,notifications)/notifications_screen.dart';
 import 'Views/Pages/therapist-(signup,registration_request_pages)/signup_screen_therapist.dart';
-import 'Views/Pages/user&therapist-(start,login,reset_password,onBoarding)/login_screen.dart';
-import 'Views/Pages/user&therapist-(start,login,reset_password,onBoarding)/onBoarding_screen.dart';
-import 'Views/Pages/user&therapist-(start,login,reset_password,onBoarding)/start_screen.dart';
+import 'Views/Pages/user&therapist-(start,login,reset_password,onBoarding,notifications)/onBoarding_screen.dart';
+import 'Views/Pages/user&therapist-(start,login,reset_password,onBoarding,notifications)/start_screen.dart';
+import 'Views/Pages/user-(main_screens)/Nav_screen.dart';
+import 'Views/Pages/user-(main_screens)/profile/profile_user_screen.dart';
+import 'Views/Pages/user-(main_screens)/therapist_user_screen.dart';
+import 'Views/Pages/user-(main_screens)/home_user_screen.dart';
 import 'Views/Pages/user-(signup,assessment_pages)/assessment_pages/assessment_first.dart';
 import 'firebase_options.dart';
 import 'Model/note_provider.dart';
@@ -43,7 +47,7 @@ class MainApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return const GetMaterialApp(
       debugShowCheckedModeBanner: false,
-      home: HomeUserPage(),
+      home: UserBottomNavBar(),
     );
   }
 }

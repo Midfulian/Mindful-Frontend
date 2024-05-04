@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'result_screen.dart';
+import 'test_result_user_screen.dart';
 
 class TestScreen extends StatefulWidget {
   @override

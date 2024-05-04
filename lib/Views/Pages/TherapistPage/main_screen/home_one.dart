@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:gr_project/Views/Components/Therapist_commponents/impact_component.dart';
 import 'package:gr_project/Views/Components/Therapist_commponents/session_component.dart';
 import 'package:gr_project/Views/Components/Therapist_commponents/welcome_component.dart';
-import 'package:gr_project/Views/Pages/notifications_screen.dart';
+import 'package:gr_project/Views/Pages/user&therapist-(start,login,reset_password,onBoarding,notifications)/notifications_screen.dart';
 
 class HomeOne extends StatefulWidget {
   const HomeOne({Key? key}) : super(key: key);

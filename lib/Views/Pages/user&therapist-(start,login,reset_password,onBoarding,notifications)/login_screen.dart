@@ -1,11 +1,11 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:gr_project/Controller/auth_controller.dart';
-import 'package:gr_project/Views/Pages/user&therapist-(start,login,reset_password,onBoarding)/reset_password_screens/email_screen.dart';
+import 'package:gr_project/Views/Pages/user&therapist-(start,login,reset_password,onBoarding,notifications)/reset_password_screens/email_screen.dart';
+import 'package:gr_project/Views/Pages/user-(main_screens)/Nav_screen.dart';
 import 'package:gr_project/Views/Pages/user-(signup,assessment_pages)/signup_screen_user.dart';
 
 import '../../Components/formField.dart';
-import '../main_screens/Nav_screen.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -163,7 +163,7 @@ class _LoginScreenState extends State<LoginScreen> {
                           Navigator.pushReplacement(
                             context,
                             MaterialPageRoute(
-                              builder: (context) => const myBottomNavBar(),
+                              builder: (context) => const UserBottomNavBar(),
                             ),
                           );
                         } catch (e) {

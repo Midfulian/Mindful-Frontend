@@ -1,23 +1,24 @@
 import 'package:flutter/material.dart';
-import 'package:gr_project/Views/Pages/main_screens/MySpace.dart';
-import 'package:gr_project/Views/Pages/main_screens/Therapist.dart';
-import 'package:gr_project/Views/Pages/main_screens/home_screen.dart';
-import 'package:gr_project/Views/Pages/main_screens/profile_screen.dart';
+import 'package:gr_project/Views/Pages/user-(main_screens)/profile/profile_user_screen.dart';
 
-class myBottomNavBar extends StatefulWidget {
-  const myBottomNavBar({super.key});
+import 'MySpace.dart';
+import 'therapist_user_screen.dart';
+import 'home_user_screen.dart';
+
+class UserBottomNavBar extends StatefulWidget {
+  const UserBottomNavBar({super.key});
 
   @override
-  State<myBottomNavBar> createState() => _myBottomNavBarState();
+  State<UserBottomNavBar> createState() => _UserBottomNavBarState();
 }
 
-class _myBottomNavBarState extends State<myBottomNavBar> {
+class _UserBottomNavBarState extends State<UserBottomNavBar> {
   int myCurrentIndex = 0;
   List pages = [
-    HomeUserPage(),
-    TherapistPage(),
+    HomeUser(),
+    UserTherapistsPage(),
     MySpacePage(),
-    ProfilePage(),
+    ProfileUserPage(),
   ];
   @override
   Widget build(BuildContext context) {

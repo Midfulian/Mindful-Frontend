@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:gr_project/Controller/auth_controller.dart';
-import 'package:gr_project/Views/Pages/user&therapist-(start,login,reset_password,onBoarding)/login_screen.dart';
+import 'package:gr_project/Views/Pages/user&therapist-(start,login,reset_password,onBoarding,notifications)/login_screen.dart';
 
 import '../../../Model/SignupUserRequest.dart';
 import 'assessment_pages/assessment_first.dart';

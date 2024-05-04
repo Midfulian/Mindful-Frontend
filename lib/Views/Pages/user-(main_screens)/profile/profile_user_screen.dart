@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
-import 'package:gr_project/Views/Pages/edit_profile_screen.dart';
+import 'package:gr_project/Views/Pages/user-(main_screens)/profile/edit_profile_user_screen.dart';
 import 'package:hexcolor/hexcolor.dart';
 
-class ProfilePage extends StatefulWidget {
-  const ProfilePage({super.key});
+class ProfileUserPage extends StatefulWidget {
+  const ProfileUserPage({super.key});
 
   @override
-  State<ProfilePage> createState() => _ProfilePageState();
+  State<ProfileUserPage> createState() => _ProfileUserPageState();
 }
 
-class _ProfilePageState extends State<ProfilePage> {
+class _ProfileUserPageState extends State<ProfileUserPage> {
   bool isSelected = true;
   @override
   Widget build(BuildContext context) {

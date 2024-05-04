@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:gr_project/Views/Components/forgot_pass_btn.dart';
-import 'package:gr_project/Views/Pages/user&therapist-(start,login,reset_password,onBoarding)/login_screen.dart';
+import 'package:gr_project/Views/Pages/user&therapist-(start,login,reset_password,onBoarding,notifications)/login_screen.dart';
 
 class DoneScreen extends StatelessWidget {
   const DoneScreen({super.key});

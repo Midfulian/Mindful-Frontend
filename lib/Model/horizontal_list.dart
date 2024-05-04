@@ -17,16 +17,14 @@ class HorizontalList {
   });
 }
 
-Future<List<HorizontalList>> getHorizontalList() async {
+List<HorizontalList> getHorizontalList() {
   List<HorizontalList> list = [];
-
-  Mock mock = await Mock.create();
 
   list.add(
     HorizontalList(
       docImage: 'assets/images/Photo.png',
-      docName: mock.patient.email,
-      docSpecialist: mock.patient.phoneNumber,
+      docName: 'User Email',
+      docSpecialist: 'User Phone Number',
       rate: '4.9 (5587 reviews)',
       price: 350,
       perMinute: 30,

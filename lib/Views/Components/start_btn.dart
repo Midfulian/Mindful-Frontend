@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import '../Pages/doctor_service_page.dart';
-import '../Pages/user&therapist-(start,login,reset_password,onBoarding)/login_screen.dart';
+import '../Pages/user&therapist-(start,login,reset_password,onBoarding,notifications)/login_screen.dart';
 
 Widget buildStartButton(bool isUserSelected, BuildContext context) {
   return Container(
