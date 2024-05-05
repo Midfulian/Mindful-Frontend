@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 import 'package:gr_project/Views/Pages/TherapistPage/main_screen/attachment.dart';
 import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'Views/Pages/user&therapist-(start,login,reset_password,onBoarding,notifications)/call_screen.dart';
 import 'Views/Pages/user&therapist-(start,login,reset_password,onBoarding,notifications)/login_screen.dart';
 import 'Views/Pages/user&therapist-(start,login,reset_password,onBoarding,notifications)/notifications_screen.dart';
 import 'Views/Pages/therapist-(signup,registration_request_pages)/signup_screen_therapist.dart';

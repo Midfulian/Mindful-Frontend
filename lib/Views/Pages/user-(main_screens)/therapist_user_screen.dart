@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:gr_project/Views/Pages/user&therapist-(start,login,reset_password,onBoarding,notifications)/call_screen.dart';
 import 'package:gr_project/Views/Pages/user-(doctor_profile,doctor_appointment,payment,test,result)/doctor_profile_user_screen.dart';
 
 import '../doctor_service_page.dart';
@@ -165,8 +166,12 @@ class TherapistCard extends StatelessWidget {
               Expanded(
                 child: GestureDetector(
                   onTap: () {
-                    print('Join now button clicked');
-                    // Handle the button click event
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => CallPage(),
+                      ),
+                    );
                   },
                   child: Container(
                     padding: EdgeInsets.symmetric(vertical: screenHeight * 0.01, horizontal: screenWidth * 0.05),
