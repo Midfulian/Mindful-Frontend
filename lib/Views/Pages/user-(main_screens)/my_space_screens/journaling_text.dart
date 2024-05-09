@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:gr_project/Model/note_provider.dart';
 import 'package:provider/provider.dart';
-
-import '../../../Model/note_provider.dart';
 
 class JournalingTextPage extends StatelessWidget {
   final _titleController = TextEditingController();

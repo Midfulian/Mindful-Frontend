@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:gr_project/Views/Pages/user-(main_screens)/profile/profile_user_screen.dart';
 
-import 'MySpace.dart';
+import 'my_space_screens/my_space_user_screen.dart';
 import 'therapist_user_screen.dart';
 import 'home_user_screen.dart';
 
