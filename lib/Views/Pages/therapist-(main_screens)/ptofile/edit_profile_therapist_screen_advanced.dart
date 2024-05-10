@@ -1,16 +1,15 @@
 import 'package:flutter/material.dart';
-import 'package:gr_project/Views/Components/Therapist_commponents/areas_checkbox_component.dart';
-import 'package:gr_project/Views/Components/Therapist_commponents/dicard_btn_component.dart';
-import 'package:gr_project/Views/Components/Therapist_commponents/nav_edit_component_advanced.dart';
-import 'package:gr_project/Views/Components/save_btn_component.dart';
+import 'package:mindful/Views/Components/Therapist_commponents/areas_checkbox_component.dart';
+import 'package:mindful/Views/Components/Therapist_commponents/dicard_btn_component.dart';
+import 'package:mindful/Views/Components/Therapist_commponents/nav_edit_component_advanced.dart';
+import 'package:mindful/Views/Components/save_btn_component.dart';
 
-class EditProfileAdvanced extends StatelessWidget {
-  const EditProfileAdvanced({super.key});
+class EditProfileTherapistAdvanced extends StatelessWidget {
+  const EditProfileTherapistAdvanced({super.key});
 
   @override
   Widget build(BuildContext context) {
     double screenWidth = MediaQuery.of(context).size.width;
-    double screenHeight = MediaQuery.of(context).size.height;
     return Scaffold(
       appBar: AppBar(
         title: Padding(

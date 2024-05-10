@@ -1,4 +1,4 @@
-import 'package:gr_project/Model/enums/AccountType.dart';
+import 'package:mindful/Model/enums/AccountType.dart';
 
 class LoginUserRequest {
   late String idToken;

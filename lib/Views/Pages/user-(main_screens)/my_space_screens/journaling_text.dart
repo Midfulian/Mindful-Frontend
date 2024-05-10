@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:gr_project/Model/note_provider.dart';
+import 'package:mindful/Model/note_provider.dart';
 import 'package:provider/provider.dart';
 
 class JournalingTextPage extends StatelessWidget {

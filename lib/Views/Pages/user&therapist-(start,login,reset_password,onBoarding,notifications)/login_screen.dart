@@ -1,14 +1,16 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:gr_project/Controller/auth_controller.dart';
-import 'package:gr_project/Views/Pages/user&therapist-(start,login,reset_password,onBoarding,notifications)/reset_password_screens/email_screen.dart';
-import 'package:gr_project/Views/Pages/user-(main_screens)/Nav_screen.dart';
-import 'package:gr_project/Views/Pages/user-(signup,assessment_pages)/signup_screen_user.dart';
+import 'package:mindful/Controller/auth_controller.dart';
+import 'package:mindful/Views/Pages/therapist-(main_screens)/therapist_screen.dart';
+import 'package:mindful/Views/Pages/user&therapist-(start,login,reset_password,onBoarding,notifications)/reset_password_screens/email_screen.dart';
+import 'package:mindful/Views/Pages/user-(main_screens)/user_screen.dart';
+import 'package:mindful/Views/Pages/user-(signup,assessment_pages)/signup_screen_user.dart';
 
 import '../../Components/formField.dart';
 
 class LoginScreen extends StatefulWidget {
-  const LoginScreen({super.key});
+  const LoginScreen({super.key, required this.userType});
+  final String userType;
 
   @override
   State<LoginScreen> createState() => _LoginScreenState();
@@ -22,6 +24,8 @@ class _LoginScreenState extends State<LoginScreen> {
   bool rememberMe = false;
 
   final Authentication _auth = Authentication();
+
+  get userType => widget.userType;
 
   @override
   Widget build(BuildContext context) {
@@ -154,42 +158,57 @@ class _LoginScreenState extends State<LoginScreen> {
                   height: 50,
                   child: MaterialButton(
                     onPressed: () async {
-                      if (formKey.currentState!.validate()) {
-                        try {
-                          await _auth.login(
-                            emailController.text,
-                            passwordController.text,
-                          );
-                          Navigator.pushReplacement(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => const UserBottomNavBar(),
-                            ),
-                          );
-                        } catch (e) {
-                          String message;
-                          if (e is FirebaseAuthException) {
-                            if (e.code == 'user-not-found') {
-                              message = 'No user found for that email.';
-                            } else if (e.code == 'wrong-password') {
-                              message =
-                                  'Wrong password provided for that user.';
-                            } else if (e.code == 'invalid-credential') {
-                              message =
-                                  'The supplied auth credential is incorrect, malformed or has expired.';
-                            } else {
-                              message = e.message!;
-                            }
-                          } else {
-                            message = e.toString();
-                          }
-                          ScaffoldMessenger.of(context).showSnackBar(
-                            SnackBar(
-                              content: Text(message),
-                              backgroundColor: Colors.red,
-                            ),
-                          );
-                        }
+                      // if (formKey.currentState!.validate()) {
+                      //   try {
+                      //     await _auth.login(
+                      //       emailController.text,
+                      //       passwordController.text,
+                      //     );
+                      //     Navigator.pushReplacement(
+                      //       context,
+                      //       MaterialPageRoute(
+                      //         builder: (context) => const UserBottomNavBar(),
+                      //       ),
+                      //     );
+                      //   } catch (e) {
+                      //     String message;
+                      //     if (e is FirebaseAuthException) {
+                      //       if (e.code == 'user-not-found') {
+                      //         message = 'No user found for that email.';
+                      //       } else if (e.code == 'wrong-password') {
+                      //         message =
+                      //             'Wrong password provided for that user.';
+                      //       } else if (e.code == 'invalid-credential') {
+                      //         message =
+                      //             'The supplied auth credential is incorrect, malformed or has expired.';
+                      //       } else {
+                      //         message = e.message!;
+                      //       }
+                      //     } else {
+                      //       message = e.toString();
+                      //     }
+                      //     ScaffoldMessenger.of(context).showSnackBar(
+                      //       SnackBar(
+                      //         content: Text(message),
+                      //         backgroundColor: Colors.red,
+                      //       ),
+                      //     );
+                      //   }
+                      // }
+                      if (userType == 'user') {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => const UserBottomNavBar(),
+                          ),
+                        );
+                      } else {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => const TherapistBottomNavBar(),
+                          ),
+                        );
                       }
                     },
                     color: Color(0xFF2196F3),

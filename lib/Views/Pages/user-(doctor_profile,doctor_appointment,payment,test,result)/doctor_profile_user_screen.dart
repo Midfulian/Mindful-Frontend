@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:gr_project/Views/Components/profil_appbar.dart';
-import 'package:gr_project/Views/Components/date_picker.dart' as date;
+import 'package:mindful/Views/Components/profil_appbar.dart';
+import 'package:mindful/Views/Components/date_picker.dart' as date;
 
 import 'appointment_user_screen.dart';
 

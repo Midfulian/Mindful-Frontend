@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:gr_project/Controller/auth_controller.dart';
-import 'package:gr_project/Views/Pages/user&therapist-(start,login,reset_password,onBoarding,notifications)/login_screen.dart';
+import 'package:mindful/Controller/auth_controller.dart';
+import 'package:mindful/Views/Pages/user&therapist-(start,login,reset_password,onBoarding,notifications)/login_screen.dart';
 
 import '../../../Model/SignupUserRequest.dart';
 import 'assessment_pages/assessment_first.dart';
@@ -398,7 +398,7 @@ class _SignUpProcess1State extends State<SignupScreenUser> {
                             Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                    builder: (context) => LoginScreen()));
+                                    builder: (context) => const LoginScreen(userType: 'user',)));
                           },
                           child: const Text(
                             "Login",

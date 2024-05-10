@@ -1,25 +1,19 @@
 import 'package:flutter/material.dart';
-import 'package:gr_project/Views/Pages/user-(main_screens)/profile/profile_user_screen.dart';
+import 'package:mindful/Views/Pages/therapist-(main_screens)/calender_therapist_screen.dart';
+import 'package:mindful/Views/Pages/therapist-(main_screens)/booking_therapist_screen/booking_therapist_screen.dart';
+import 'package:mindful/Views/Pages/therapist-(main_screens)/home_therapist_screen.dart';
+import 'package:mindful/Views/Pages/therapist-(main_screens)/ptofile/profile_therapist_screen.dart';
 
-import 'my_space_screens/my_space_user_screen.dart';
-import 'therapist_user_screen.dart';
-import 'home_user_screen.dart';
-
-class UserBottomNavBar extends StatefulWidget {
-  const UserBottomNavBar({super.key});
+class TherapistBottomNavBar extends StatefulWidget {
+  const TherapistBottomNavBar({super.key});
 
   @override
-  State<UserBottomNavBar> createState() => _UserBottomNavBarState();
+  State<TherapistBottomNavBar> createState() => _myBottomNavBarState();
 }
 
-class _UserBottomNavBarState extends State<UserBottomNavBar> {
+class _myBottomNavBarState extends State<TherapistBottomNavBar> {
   int myCurrentIndex = 0;
-  List pages = [
-    HomeUser(),
-    UserTherapistsPage(),
-    MySpacePage(),
-    ProfileUserPage(),
-  ];
+  List pages = const [HomeTherapist(), CalenderPage(), BookingPage(), ProfileTherapistPage()];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -42,12 +36,14 @@ class _UserBottomNavBarState extends State<UserBottomNavBar> {
                 label: "Home"),
             BottomNavigationBarItem(
                 icon: ImageIcon(
-                  AssetImage("assets/images/doctor.png"),
-                  size: 30,
+                  AssetImage("assets/images/calendar.png"),
                 ),
-                label: "Therapists"),
+                label: "Calendar"),
             BottomNavigationBarItem(
-                icon: Icon(Icons.space_dashboard_outlined), label: "My space"),
+                icon: ImageIcon(
+                  AssetImage("assets/images/historys.png"),
+                ),
+                label: "Booking"),
             BottomNavigationBarItem(
                 icon: Image(
                   image: AssetImage("assets/images/Photo.png"),

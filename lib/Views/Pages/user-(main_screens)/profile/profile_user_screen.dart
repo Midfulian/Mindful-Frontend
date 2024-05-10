@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:gr_project/Views/Pages/user-(main_screens)/profile/edit_profile_user_screen.dart';
+import 'package:mindful/Views/Pages/user-(main_screens)/profile/edit_profile_user_screen.dart';
 import 'package:hexcolor/hexcolor.dart';
 
 class ProfileUserPage extends StatefulWidget {

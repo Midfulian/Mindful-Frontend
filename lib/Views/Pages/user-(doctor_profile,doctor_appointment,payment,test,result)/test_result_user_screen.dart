@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-import '../doctor_service_page.dart';
 import 'doctor_profile_user_screen.dart';
 
 class ResultScreen extends StatefulWidget {
@@ -318,7 +317,7 @@ class TherapistCardDown extends StatelessWidget {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => DoctorServicePage(),
+                      builder: (context) => DoctorProfileUserPage(),
                     ),
                   );
                 },

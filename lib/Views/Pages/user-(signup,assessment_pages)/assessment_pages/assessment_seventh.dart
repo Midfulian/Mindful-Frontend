@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:gr_project/Views/Components/assessment_bar.dart';
-import 'package:gr_project/Views/Components/assessment_btn.dart';
-import 'package:gr_project/Views/Components/assessment_seventh_questions.dart';
-import 'package:gr_project/Views/Pages/user-(main_screens)/Nav_screen.dart';
+import 'package:mindful/Views/Components/assessment_bar.dart';
+import 'package:mindful/Views/Components/assessment_btn.dart';
+import 'package:mindful/Views/Components/assessment_seventh_questions.dart';
+import 'package:mindful/Views/Pages/user-(main_screens)/user_screen.dart';
 
 class AssessmentSeventh extends StatefulWidget {
   const AssessmentSeventh({super.key});

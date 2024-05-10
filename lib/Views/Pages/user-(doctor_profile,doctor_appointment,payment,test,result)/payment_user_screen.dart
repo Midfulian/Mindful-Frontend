@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:gr_project/Views/Components/profil_appbar.dart';
+import 'package:mindful/Views/Components/profil_appbar.dart';
 
 class PaymentUserPage extends StatefulWidget {
   const PaymentUserPage({super.key});

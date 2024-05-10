@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:gr_project/Views/Components/assessment_bar.dart';
-import 'package:gr_project/Views/Components/assessment_btn.dart';
+import 'package:mindful/Views/Components/assessment_bar.dart';
+import 'package:mindful/Views/Components/assessment_btn.dart';
 
 import 'assessment_sixth.dart';
 

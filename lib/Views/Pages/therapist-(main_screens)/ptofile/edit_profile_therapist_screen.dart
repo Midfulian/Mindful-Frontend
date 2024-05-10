@@ -1,17 +1,17 @@
 import 'package:flutter/material.dart';
-import 'package:gr_project/Views/Components/Therapist_commponents/dicard_btn_component.dart';
-import 'package:gr_project/Views/Components/Therapist_commponents/nav_edit_component.dart';
-import 'package:gr_project/Views/Components/Therapist_commponents/select_component.dart';
-import 'package:gr_project/Views/Components/save_btn_component.dart';
+import 'package:mindful/Views/Components/Therapist_commponents/dicard_btn_component.dart';
+import 'package:mindful/Views/Components/Therapist_commponents/nav_edit_component.dart';
+import 'package:mindful/Views/Components/Therapist_commponents/select_component.dart';
+import 'package:mindful/Views/Components/save_btn_component.dart';
 
-class EditProfileScreen extends StatefulWidget {
-  const EditProfileScreen({super.key});
+class EditProfileTherapistScreen extends StatefulWidget {
+  const EditProfileTherapistScreen({super.key});
 
   @override
-  State<EditProfileScreen> createState() => _EditProfilePageState();
+  State<EditProfileTherapistScreen> createState() => _EditProfilePageState();
 }
 
-class _EditProfilePageState extends State<EditProfileScreen> {
+class _EditProfilePageState extends State<EditProfileTherapistScreen> {
   var firstNameController = TextEditingController();
 
   var lastNameController = TextEditingController();

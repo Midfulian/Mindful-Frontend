@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:gr_project/Views/Components/assesment_third_rate.dart';
-import 'package:gr_project/Views/Components/assessment_bar.dart';
-import 'package:gr_project/Views/Components/assessment_btn.dart';
+import 'package:mindful/Views/Components/assesment_third_rate.dart';
+import 'package:mindful/Views/Components/assessment_bar.dart';
+import 'package:mindful/Views/Components/assessment_btn.dart';
 
 import 'assesment_fourth.dart';
 

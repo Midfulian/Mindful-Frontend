@@ -1,19 +1,25 @@
 import 'package:flutter/material.dart';
-import 'package:gr_project/Views/Pages/TherapistPage/main_screen/booking_page.dart';
-import 'package:gr_project/Views/Pages/TherapistPage/main_screen/calender_page.dart';
-import 'package:gr_project/Views/Pages/TherapistPage/main_screen/home_page.dart';
-import 'package:gr_project/Views/Pages/TherapistPage/main_screen/profile_Page.dart';
+import 'package:mindful/Views/Pages/user-(main_screens)/profile/profile_user_screen.dart';
 
-class BottomNavBar extends StatefulWidget {
-  const BottomNavBar({super.key});
+import 'my_space_screens/my_space_user_screen.dart';
+import 'therapist_user_screen.dart';
+import 'home_user_screen.dart';
+
+class UserBottomNavBar extends StatefulWidget {
+  const UserBottomNavBar({super.key});
 
   @override
-  State<BottomNavBar> createState() => _myBottomNavBarState();
+  State<UserBottomNavBar> createState() => _UserBottomNavBarState();
 }
 
-class _myBottomNavBarState extends State<BottomNavBar> {
+class _UserBottomNavBarState extends State<UserBottomNavBar> {
   int myCurrentIndex = 0;
-  List pages = const [HomePage(), CalenderPage(), BookingPage(), ProfilePage()];
+  List pages = [
+    HomeUser(),
+    UserTherapistsPage(),
+    MySpacePage(),
+    ProfileUserPage(),
+  ];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -36,14 +42,12 @@ class _myBottomNavBarState extends State<BottomNavBar> {
                 label: "Home"),
             BottomNavigationBarItem(
                 icon: ImageIcon(
-                  AssetImage("assets/images/calendar.png"),
+                  AssetImage("assets/images/doctor.png"),
+                  size: 30,
                 ),
-                label: "Calendar"),
+                label: "Therapists"),
             BottomNavigationBarItem(
-                icon: ImageIcon(
-                  AssetImage("assets/images/historys.png"),
-                ),
-                label: "Booking"),
+                icon: Icon(Icons.space_dashboard_outlined), label: "My space"),
             BottomNavigationBarItem(
                 icon: Image(
                   image: AssetImage("assets/images/Photo.png"),

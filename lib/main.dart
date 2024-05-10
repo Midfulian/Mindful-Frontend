@@ -1,21 +1,11 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:gr_project/Views/Pages/TherapistPage/main_screen/attachment.dart';
-import 'package:gr_project/Views/Pages/user-(main_screens)/my_space_screens/my_space_user_screen.dart';
 import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'Views/Pages/user&therapist-(start,login,reset_password,onBoarding,notifications)/call_screen.dart';
 import 'Views/Pages/user&therapist-(start,login,reset_password,onBoarding,notifications)/login_screen.dart';
-import 'Views/Pages/user&therapist-(start,login,reset_password,onBoarding,notifications)/notifications_screen.dart';
-import 'Views/Pages/therapist-(signup,registration_request_pages)/signup_screen_therapist.dart';
 import 'Views/Pages/user&therapist-(start,login,reset_password,onBoarding,notifications)/onBoarding_screen.dart';
 import 'Views/Pages/user&therapist-(start,login,reset_password,onBoarding,notifications)/start_screen.dart';
-import 'Views/Pages/user-(main_screens)/Nav_screen.dart';
-import 'Views/Pages/user-(main_screens)/profile/profile_user_screen.dart';
-import 'Views/Pages/user-(main_screens)/therapist_user_screen.dart';
-import 'Views/Pages/user-(main_screens)/home_user_screen.dart';
-import 'Views/Pages/user-(signup,assessment_pages)/assessment_pages/assessment_first.dart';
 import 'firebase_options.dart';
 import 'Model/note_provider.dart';
 
@@ -25,7 +15,7 @@ void main() async {
   bool seenOnboarding = prefs.getBool('seen_onboarding') ?? false;
   bool seenStartScreen = prefs.getBool('seen_start_screen') ?? false;
   Widget _defaultHome = seenOnboarding
-      ? (seenStartScreen ? const LoginScreen() : const StartScreen())
+      ? (seenStartScreen ? const LoginScreen(userType: 'user',) : const StartScreen())
       : const OnboardingScreen();
 
   await Firebase.initializeApp(
@@ -49,7 +39,7 @@ class MainApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return const GetMaterialApp(
       debugShowCheckedModeBanner: false,
-      home: UserBottomNavBar(),
+      home: OnboardingScreen(),
     );
   }
 }

@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:mindful/Views/Pages/therapist-(main_screens)/therapist_screen.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-
-import '../Pages/doctor_service_page.dart';
 import '../Pages/user&therapist-(start,login,reset_password,onBoarding,notifications)/login_screen.dart';
 
 Widget buildStartButton(bool isUserSelected, BuildContext context) {
@@ -18,7 +17,7 @@ Widget buildStartButton(bool isUserSelected, BuildContext context) {
           prefs.setBool('seen_start_screen', true);
           Navigator.push(
             context,
-            MaterialPageRoute(builder: (context) => const LoginScreen()),
+            MaterialPageRoute(builder: (context) => const LoginScreen(userType: 'user')),
           );
         } else {
           print('Doctor');
@@ -26,7 +25,7 @@ Widget buildStartButton(bool isUserSelected, BuildContext context) {
           prefs.setBool('seen_start_screen', true);
           Navigator.push(
             context,
-            MaterialPageRoute(builder: (context) => DoctorServicePage()),
+            MaterialPageRoute(builder: (context) => LoginScreen(userType: 'therapist')),
           );
         }
       },

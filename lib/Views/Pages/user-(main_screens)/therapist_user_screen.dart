@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:gr_project/Views/Pages/user&therapist-(start,login,reset_password,onBoarding,notifications)/call_screen.dart';
-import 'package:gr_project/Views/Pages/user-(doctor_profile,doctor_appointment,payment,test,result)/doctor_profile_user_screen.dart';
-
-import '../doctor_service_page.dart';
+import 'package:mindful/Views/Pages/user&therapist-(start,login,reset_password,onBoarding,notifications)/call_screen.dart';
+import 'package:mindful/Views/Pages/user-(doctor_profile,doctor_appointment,payment,test,result)/doctor_profile_user_screen.dart';
 
 class UserTherapistsPage extends StatelessWidget {
   const UserTherapistsPage({Key? key}) : super(key: key);
@@ -362,7 +360,7 @@ class TherapistCardDown extends StatelessWidget {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => DoctorServicePage(),
+                      builder: (context) => DoctorProfileUserPage(),
                     ),
                   );
                 },

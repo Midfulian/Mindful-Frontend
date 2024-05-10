@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:gr_project/Views/Pages/TherapistPage/edit_profile_page_advanced.dart';
+import 'package:mindful/Views/Pages/therapist-(main_screens)/ptofile/edit_profile_therapist_screen_advanced.dart';
 
 class NavComponent extends StatefulWidget {
   const NavComponent({super.key});
@@ -54,7 +54,7 @@ class _NavComponentState extends State<NavComponent> {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => EditProfileAdvanced(),
+                      builder: (context) => EditProfileTherapistAdvanced(),
                     ),
                   );
                 });

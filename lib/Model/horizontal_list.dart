@@ -1,4 +1,4 @@
-import 'package:gr_project/mock.dart';
+import 'package:mindful/mock.dart';
 
 class HorizontalList {
   String docImage;

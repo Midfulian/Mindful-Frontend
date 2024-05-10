@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:gr_project/Views/Components/start_btn.dart';
+import 'package:mindful/Views/Components/start_btn.dart';
 
 class StartScreen extends StatefulWidget {
   const StartScreen({super.key});

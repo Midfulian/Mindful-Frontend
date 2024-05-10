@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:gr_project/Controller/auth_controller.dart';
-import 'package:gr_project/Model/SignupUserRequest.dart';
-import 'package:gr_project/Views/Pages/user&therapist-(start,login,reset_password,onBoarding,notifications)/login_screen.dart';
+import 'package:mindful/Controller/auth_controller.dart';
+import 'package:mindful/Model/SignupUserRequest.dart';
+import 'package:mindful/Views/Pages/user&therapist-(start,login,reset_password,onBoarding,notifications)/login_screen.dart';
 import 'package:file_picker/file_picker.dart';
 
 class SignupScreenTherapist extends StatefulWidget {
@@ -393,10 +393,7 @@ class _SignupScreenTherapistState extends State<SignupScreenTherapist> {
                         ),
                         InkWell(
                           onTap: () {
-                            Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => LoginScreen()));
+                            Navigator.pop(context);
                           },
                           child: const Text(
                             "Login",

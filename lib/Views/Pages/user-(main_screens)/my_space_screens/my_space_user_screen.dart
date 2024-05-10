@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:gr_project/Model/note_provider.dart';
-import 'package:gr_project/Views/Pages/user-(doctor_profile,doctor_appointment,payment,test,result)/test_user_screen.dart';
+import 'package:mindful/Model/note_provider.dart';
+import 'package:mindful/Views/Pages/user-(doctor_profile,doctor_appointment,payment,test,result)/test_user_screen.dart';
 import 'package:provider/provider.dart';
 import 'package:flutter_sound/flutter_sound.dart';
 import 'package:syncfusion_flutter_charts/charts.dart';

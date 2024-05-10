@@ -6,7 +6,6 @@ class WelcomeComponent extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     double screenWidth = MediaQuery.of(context).size.width;
-    double screenHeight = MediaQuery.of(context).size.height;
     return Padding(
         padding:
             EdgeInsets.fromLTRB(screenWidth * 0.01, screenWidth * 0.03, 0, 0),

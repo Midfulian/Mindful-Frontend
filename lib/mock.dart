@@ -1,4 +1,4 @@
-import 'package:gr_project/Model/User.dart';
+import 'package:mindful/Model/User.dart';
 
 class Mock {
 

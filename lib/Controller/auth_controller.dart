@@ -1,7 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:gr_project/Model/LoginUserRequest.dart';
+import 'package:mindful/Model/LoginUserRequest.dart';
 import 'package:dio/dio.dart';
-import 'package:gr_project/Model/RegisterUserRequest.dart';
+import 'package:mindful/Model/RegisterUserRequest.dart';
 
 import '../Model/SignupUserRequest.dart';
 import '../Model/enums/AccountType.dart';

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:gr_project/Views/Components/profil_appbar.dart';
-import 'package:gr_project/Views/Pages/user-(doctor_profile,doctor_appointment,payment,test,result)/payment_user_screen.dart';
+import 'package:mindful/Views/Components/profil_appbar.dart';
+import 'package:mindful/Views/Pages/user-(doctor_profile,doctor_appointment,payment,test,result)/payment_user_screen.dart';
 import 'package:intl/intl.dart';
 
 class AppointmentPage extends StatefulWidget {

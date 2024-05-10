@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:gr_project/Model/horizontal_list.dart';
-import 'package:gr_project/Views/Pages/doctor_service_page.dart';
-import 'package:gr_project/Views/Pages/user&therapist-(start,login,reset_password,onBoarding,notifications)/notifications_screen.dart';
-import 'package:gr_project/Views/Pages/user-(doctor_profile,doctor_appointment,payment,test,result)/doctor_profile_user_screen.dart';
-import 'package:gr_project/Views/Pages/user-(doctor_profile,doctor_appointment,payment,test,result)/test_user_screen.dart';
+import 'package:mindful/Model/horizontal_list.dart';
+import 'package:mindful/Views/Pages/user&therapist-(start,login,reset_password,onBoarding,notifications)/notifications_screen.dart';
+import 'package:mindful/Views/Pages/user-(doctor_profile,doctor_appointment,payment,test,result)/doctor_profile_user_screen.dart';
+import 'package:mindful/Views/Pages/user-(doctor_profile,doctor_appointment,payment,test,result)/test_user_screen.dart';
 import 'package:syncfusion_flutter_charts/charts.dart';
 
 class HomeUser extends StatefulWidget {
@@ -517,7 +516,7 @@ class _HomeUserState extends State<HomeUser> {
                                     Navigator.push(
                                       context,
                                       MaterialPageRoute(
-                                        builder: (context) => DoctorServicePage(),
+                                        builder: (context) => DoctorProfileUserPage(),
                                       ),
                                     );
                                   },

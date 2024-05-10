@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:gr_project/Views/Components/forgot_pass_appBar.dart';
-import 'package:gr_project/Views/Components/forgot_pass_btn.dart';
-import 'package:gr_project/Views/Components/forgot_pass_progress_indicator.dart';
-import 'package:gr_project/Views/Components/formField.dart';
+import 'package:mindful/Views/Components/forgot_pass_appBar.dart';
+import 'package:mindful/Views/Components/forgot_pass_btn.dart';
+import 'package:mindful/Views/Components/forgot_pass_progress_indicator.dart';
+import 'package:mindful/Views/Components/formField.dart';
 import 'done_screen.dart';
 
 class ResetPasswordScreen extends StatelessWidget {
