@@ -15,7 +15,7 @@ Widget buildStartButton(bool isUserSelected, BuildContext context) {
           print('User');
           SharedPreferences prefs = await SharedPreferences.getInstance();
           prefs.setBool('seen_start_screen', true);
-          Navigator.push(
+          Navigator.pushReplacement(
             context,
             MaterialPageRoute(builder: (context) => const LoginScreen(userType: 'user')),
           );
@@ -23,7 +23,7 @@ Widget buildStartButton(bool isUserSelected, BuildContext context) {
           print('Doctor');
           SharedPreferences prefs = await SharedPreferences.getInstance();
           prefs.setBool('seen_start_screen', true);
-          Navigator.push(
+          Navigator.pushReplacement(
             context,
             MaterialPageRoute(builder: (context) => LoginScreen(userType: 'therapist')),
           );

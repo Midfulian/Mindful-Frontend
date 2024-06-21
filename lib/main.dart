@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'Views/Pages/admin-(dashboard)/web_dashboard.dart';
+import 'Views/Pages/therapist-(signup,registration_request_pages)/signup_screen_therapist.dart';
 import 'Views/Pages/user&therapist-(start,login,reset_password,onBoarding,notifications)/login_screen.dart';
 import 'Views/Pages/user&therapist-(start,login,reset_password,onBoarding,notifications)/onBoarding_screen.dart';
 import 'Views/Pages/user&therapist-(start,login,reset_password,onBoarding,notifications)/start_screen.dart';
@@ -37,7 +39,10 @@ class MainApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const GetMaterialApp(
+    return MaterialApp(
+      theme: ThemeData(
+        scaffoldBackgroundColor: Colors.white,
+      ),
       debugShowCheckedModeBanner: false,
       home: OnboardingScreen(),
     );

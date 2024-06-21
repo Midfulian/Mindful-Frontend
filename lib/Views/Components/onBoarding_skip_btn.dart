@@ -10,7 +10,7 @@ Widget buildSkipButton(BuildContext context) {
     onPressed: () async {
       SharedPreferences prefs = await SharedPreferences.getInstance();
       prefs.setBool('seen_onboarding', true);
-      Navigator.push(
+      Navigator.pushReplacement(
         context,
         MaterialPageRoute(builder: (context) => StartScreen()),
       );

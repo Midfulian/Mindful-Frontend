@@ -62,13 +62,6 @@ class WelcomeComponent extends StatelessWidget {
                     ],
                   ),
                 ),
-                Padding(
-                  padding: EdgeInsets.fromLTRB(screenWidth * 0.02, 0, 0, 0),
-                  child: Image(
-                    image: AssetImage("assets/images/home_image.png"),
-                    width: screenWidth * 0.25,
-                  ),
-                ),
               ],
             ),
           ),

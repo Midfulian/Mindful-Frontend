@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:mindful/Controller/auth_controller.dart';
 import 'package:mindful/Model/SignupUserRequest.dart';
+import 'package:mindful/Views/Pages/therapist-(signup,registration_request_pages)/registration_request_pages/pending_screen.dart';
 import 'package:mindful/Views/Pages/user&therapist-(start,login,reset_password,onBoarding,notifications)/login_screen.dart';
 import 'package:file_picker/file_picker.dart';
 
@@ -348,28 +349,39 @@ class _SignupScreenTherapistState extends State<SignupScreenTherapist> {
                           minimumSize: const Size(double.infinity, 50),
                         ),
                         onPressed: () async {
-                          if (formKey.currentState!.validate()) {
-                            try {
-                              bool signUpSuccess = await _auth.signUp(
-                                SignUserRequest(
-                                  first_name: firstNameController.text,
-                                  last_name: lastNameController.text,
-                                  email: emailController.text,
-                                  phoneNumber: phoneController.text,
-                                  languagePreference: "en",
-                                  country: "EG",
-                                  photoURL: 'http://www.google.com/ziad',
-                                  profile_picture: 'http://www.google.com/ziad',
-                                ),
-                                passwordController.text,
-                              );
-                              if (signUpSuccess) {
-                                // event to navigate to the next screen
-                              }
-                            } catch (e) {
-                              print(e);
-                            }
-                          }
+                          // if (formKey.currentState!.validate()) {
+                          //   try {
+                          //     bool signUpSuccess = await _auth.signUp(
+                          //       SignUserRequest(
+                          //         first_name: firstNameController.text,
+                          //         last_name: lastNameController.text,
+                          //         email: emailController.text,
+                          //         phoneNumber: phoneController.text,
+                          //         languagePreference: "en",
+                          //         country: "EG",
+                          //         photoURL: 'http://www.google.com/ziad',
+                          //         profile_picture: 'http://www.google.com/ziad',
+                          //       ),
+                          //       passwordController.text,
+                          //     );
+                          //     if (signUpSuccess) {
+                          //         Navigator.push(
+                          //         context,
+                          //         MaterialPageRoute(
+                          //           builder: (context) => const PendingScreen(),
+                          //         ),
+                          //       );
+                          //     }
+                          //   } catch (e) {
+                          //     print(e);
+                          //   }
+                          // }
+                          Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                        builder: (context) => const PendingScreen(),
+                                      ),
+                          );
                         },
                         child: const Text(
                           "Sign up",

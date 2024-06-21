@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 import 'package:mindful/Views/Components/profil_appbar.dart';
 import 'package:mindful/Views/Components/date_picker.dart' as date;
 
@@ -427,12 +426,14 @@ class _DoctorProfileUserPageState extends State<DoctorProfileUserPage> {
                   fixedSize: Size(screenWidth * 0.9, screenHeight * 0.07)),
               onPressed: () {
                 if (pickedDate && pickedTime) {
-                  Get.to(
-                    AppointmentPage(
-                      choice: choice,
-                      dateTime: userDate,
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => AppointmentPage(
+                        choice: choice,
+                        dateTime: userDate,
+                      ),
                     ),
-                    transition: Transition.rightToLeftWithFade,
                   );
                 }
               },

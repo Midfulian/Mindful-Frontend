@@ -25,8 +25,7 @@ class ReviewsComponent extends StatelessWidget {
           Row(
             children: [
               Padding(
-                padding: EdgeInsets.fromLTRB(
-                    screenWidth * 0.05, screenWidth * 0.02, 0, 0),
+                padding: const EdgeInsets.symmetric(horizontal: 15.0),
                 child: Text(
                   "Reviews",
                   style: TextStyle(
@@ -37,8 +36,7 @@ class ReviewsComponent extends StatelessWidget {
               Row(
                 children: [
                   Padding(
-                    padding: EdgeInsets.fromLTRB(
-                        screenWidth * 0.4, screenWidth * 0.01, 0, 0),
+                    padding: const EdgeInsets.symmetric(horizontal: 15.0),
                     child: Text(
                       "0 ",
                       style: TextStyle(
@@ -47,14 +45,10 @@ class ReviewsComponent extends StatelessWidget {
                           fontWeight: FontWeight.w600),
                     ),
                   ),
-                  Padding(
-                    padding: EdgeInsets.fromLTRB(
-                        screenWidth * 0.0, screenWidth * 0.02, 0, 0),
-                    child: Text(
-                      "rates this month",
-                      style: TextStyle(
-                          color: Colors.grey, fontSize: screenWidth * 0.03),
-                    ),
+                  Text(
+                    "rates this month",
+                    style: TextStyle(
+                        color: Colors.grey, fontSize: screenWidth * 0.03),
                   )
                 ],
               ),

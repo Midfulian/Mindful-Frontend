@@ -21,6 +21,7 @@ class _HomeTherapistState extends State<HomeTherapist> {
     double screenHeight = MediaQuery.of(context).size.height;
     return Scaffold(
       appBar: AppBar(
+        automaticallyImplyLeading: false,
         backgroundColor: Colors.white,
         shadowColor: Colors.white,
         elevation: 0,
@@ -69,7 +70,12 @@ class _HomeTherapistState extends State<HomeTherapist> {
       body: SingleChildScrollView(
         child: Column(
           children: [
-            WelcomeComponent(),
+            Container(
+              child: Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: WelcomeComponent(),
+              ),
+            ),
             Padding(
               padding: EdgeInsets.fromLTRB(screenWidth * 0.08, screenWidth * 0.04, 0, 0),
               child: Row(
@@ -80,7 +86,7 @@ class _HomeTherapistState extends State<HomeTherapist> {
                         fontSize: screenWidth * 0.05, fontWeight: FontWeight.w600),
                   ),
                   Padding(
-                    padding: EdgeInsets.fromLTRB(screenWidth * 0.3, 0, 0, 0),
+                    padding: const EdgeInsets.symmetric(horizontal: 10.0),
                     child: TextButton(
                       onPressed: () {
                         setState(() {
@@ -142,7 +148,7 @@ class _HomeTherapistState extends State<HomeTherapist> {
               ),
             )
                 : SizedBox(
-              height: screenHeight * 0.4,
+              height: screenHeight * 0.2,
               child: ListView.builder(
                 itemCount: sessions.length,
                 scrollDirection: Axis.horizontal,

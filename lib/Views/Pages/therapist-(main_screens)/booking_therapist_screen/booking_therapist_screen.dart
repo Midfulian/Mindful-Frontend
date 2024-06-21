@@ -29,51 +29,58 @@ class _BookingPageState extends State<BookingPage> {
   Widget build(BuildContext context) {
     double screenWidth = MediaQuery.of(context).size.width;
 
-    return Padding(
-      padding: const EdgeInsets.all(8.0),
-      child: Column(
+    return Scaffold(
+      backgroundColor: Colors.white,
+      appBar: AppBar(
+        elevation: 0,
+        backgroundColor: Colors.white,
+      ),
+      body: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: [
-              GestureDetector(
-                onTap: () {
-                  setState(() {
-                    _currentPageIndex = 0;
-                    _pageController.animateToPage(_currentPageIndex,
-                        duration: Duration(milliseconds: 300),
-                        curve: Curves.easeInOut);
-                  });
-                },
-                child: Text(
-                  "Upcoming",
-                  style: TextStyle(
-                    fontSize: screenWidth * 0.05,
-                    color: _currentPageIndex == 0 ? Colors.blue : Colors.black,
-                    fontWeight: FontWeight.w400,
+          Container(
+            color: Colors.white,
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                GestureDetector(
+                  onTap: () {
+                    setState(() {
+                      _currentPageIndex = 0;
+                      _pageController.animateToPage(_currentPageIndex,
+                          duration: Duration(milliseconds: 300),
+                          curve: Curves.easeInOut);
+                    });
+                  },
+                  child: Text(
+                    "Upcoming",
+                    style: TextStyle(
+                      fontSize: screenWidth * 0.05,
+                      color: _currentPageIndex == 0 ? Colors.blue : Colors.black,
+                      fontWeight: FontWeight.w400,
+                    ),
                   ),
                 ),
-              ),
-              GestureDetector(
-                onTap: () {
-                  setState(() {
-                    _currentPageIndex = 1;
-                    _pageController.animateToPage(_currentPageIndex,
-                        duration: Duration(milliseconds: 300),
-                        curve: Curves.easeInOut);
-                  });
-                },
-                child: Text(
-                  "Past",
-                  style: TextStyle(
-                    fontSize: screenWidth * 0.05,
-                    color: _currentPageIndex == 1 ? Colors.blue : Colors.black,
-                    fontWeight: FontWeight.w400,
+                GestureDetector(
+                  onTap: () {
+                    setState(() {
+                      _currentPageIndex = 1;
+                      _pageController.animateToPage(_currentPageIndex,
+                          duration: Duration(milliseconds: 300),
+                          curve: Curves.easeInOut);
+                    });
+                  },
+                  child: Text(
+                    "Past",
+                    style: TextStyle(
+                      fontSize: screenWidth * 0.05,
+                      color: _currentPageIndex == 1 ? Colors.blue : Colors.black,
+                      fontWeight: FontWeight.w400,
+                    ),
                   ),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
           Expanded(
             child: PageView(

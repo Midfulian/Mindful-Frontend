@@ -36,28 +36,24 @@ class _PaymentUserPageState extends State<PaymentUserPage> {
                     fontSize: screenWidth * 0.05, fontWeight: FontWeight.w600),
               ),
             ),
-            Padding(
-              padding: EdgeInsets.fromLTRB(screenWidth * 0.04,
-                  screenWidth * 0.03, screenWidth * 0.03, 0),
-              child: Container(
-                height: screenHeight * 0.08,
-                width: screenWidth,
-                decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(15),
-                    border: Border.all(width: screenWidth * 0.0002)),
-                child: Row(
-                  children: [
-                    Padding(
-                      padding: EdgeInsets.fromLTRB(screenWidth * 0.03, 0, 0, 0),
-                      child: Text("VISA"),
-                    ),
-                    Padding(
-                      padding: EdgeInsets.fromLTRB(screenWidth * 0.7, 0, 0, 0),
-                      child: Radio(
-                          value: 1, groupValue: 1, onChanged: (int? value) {}),
-                    )
-                  ],
-                ),
+            Container(
+              height: screenHeight * 0.08,
+              width: screenWidth,
+              decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(15),
+                  border: Border.all(width: screenWidth * 0.0002)),
+              child: Row(
+                children: [
+                  Padding(
+                    padding: EdgeInsets.fromLTRB(screenWidth * 0.03, 0, 0, 0),
+                    child: Text("VISA"),
+                  ),
+                  Padding(
+                    padding: EdgeInsets.fromLTRB(screenWidth * 0.7, 0, 0, 0),
+                    child: Radio(
+                        value: 1, groupValue: 1, onChanged: (int? value) {}),
+                  )
+                ],
               ),
             ),
             SizedBox(

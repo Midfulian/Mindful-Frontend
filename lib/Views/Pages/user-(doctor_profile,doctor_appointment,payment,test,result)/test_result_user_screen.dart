@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 
 import 'doctor_profile_user_screen.dart';
 
@@ -53,15 +54,19 @@ class _ResultScreenState extends State<ResultScreen> {
                     ),
                   ),
                   SizedBox(height: 10),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      scoreBox('Normal', Colors.green, 0, 10),
-                      scoreBox('Mid', Colors.yellow, 11, 20),
-                      scoreBox('Moderate', Colors.orange, 21, 30),
-                      scoreBox('Severe', Colors.red, 31, 40),
-                      scoreBox('Extremely Severe', Colors.red, 41, 50),
-                    ],
+                  SingleChildScrollView(
+                    scrollDirection: Axis.horizontal,
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        scoreBox('Normal', Colors.green, 0, 10),
+                        scoreBox('Mid', Colors.yellow, 11, 20),
+                        scoreBox('Moderate', Colors.orange, 21, 30),
+                        scoreBox('Severe', Colors.red, 31, 40),
+                        scoreBox('Extremely Severe', Colors.red, 41, 50),
+                      ],
+                    ),
                   ),
                   SizedBox(height: 20),
                   RichText(
@@ -90,51 +95,45 @@ class _ResultScreenState extends State<ResultScreen> {
               ),
             ),
           ),
-          Card(
-          color: Colors.grey[300],
-          child: Padding(
-            padding: EdgeInsets.all(16.0),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                RichText(
-                  text: TextSpan(
-                    children: [
-                      TextSpan(
-                        text: 'Recommended Therapists',
-                        style: TextStyle(
-                          fontSize: 16,
-                          color: Colors.grey[850],
-                          fontWeight: FontWeight.bold,
-                        ),
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              RichText(
+                text: TextSpan(
+                  children: [
+                    TextSpan(
+                      text: 'Recommended Therapists',
+                      style: TextStyle(
+                        fontSize: 16,
+                        color: Colors.grey[850],
+                        fontWeight: FontWeight.bold,
                       ),
-                    ],
-                  ),
-                  textAlign: TextAlign.start,
+                    ),
+                  ],
                 ),
-                SizedBox(height: 20),
-                ListView.builder(
-                    shrinkWrap: true,
-                    physics: NeverScrollableScrollPhysics(),
-                    itemCount: 5,
-                    itemBuilder: (BuildContext context, int index) {
-                      return Column(
-                        children: [
-                          Container(
-                            decoration: BoxDecoration(
-                              color: Colors.white,
-                              borderRadius: BorderRadius.circular(10),
-                            ),
-                            child: TherapistCardDown()),
-                          if (index != 4) SizedBox(height: 20),
-                        ],
-                      );
-                    },
-                  ),
-              ],
-            ),
-          ),
-        )
+                textAlign: TextAlign.start,
+              ),
+              SizedBox(height: 20),
+              ListView.builder(
+                  shrinkWrap: true,
+                  physics: NeverScrollableScrollPhysics(),
+                  itemCount: 5,
+                  itemBuilder: (BuildContext context, int index) {
+                    return Column(
+                      children: [
+                        Container(
+                          decoration: BoxDecoration(
+                            color: Colors.white,
+                            borderRadius: BorderRadius.circular(10),
+                          ),
+                          child: TherapistCardDown()),
+                        if (index != 4) SizedBox(height: 20),
+                      ],
+                    );
+                  },
+                ),
+            ],
+          )
         ],
       ),
     );

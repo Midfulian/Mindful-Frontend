@@ -204,7 +204,7 @@ class _AppointmentPageState extends State<AppointmentPage> {
                         color: Colors.grey, fontSize: screenWidth * 0.04),
                   ),
                   Padding(
-                    padding: EdgeInsets.fromLTRB(screenWidth * 0.57, 0, 0, 0),
+                    padding: EdgeInsets.fromLTRB(screenWidth * 0.50, 0, 0, 0),
                     child: Text(
                       "\$60.00",
                       style: TextStyle(fontSize: screenWidth * 0.04),
@@ -224,7 +224,7 @@ class _AppointmentPageState extends State<AppointmentPage> {
                         color: Colors.grey, fontSize: screenWidth * 0.04),
                   ),
                   Padding(
-                    padding: EdgeInsets.fromLTRB(screenWidth * 0.602, 0, 0, 0),
+                    padding: EdgeInsets.fromLTRB(screenWidth * 0.54, 0, 0, 0),
                     child: Text(
                       "\$01.00",
                       style: TextStyle(fontSize: screenWidth * 0.04),
@@ -244,7 +244,7 @@ class _AppointmentPageState extends State<AppointmentPage> {
                         color: Colors.grey, fontSize: screenWidth * 0.04),
                   ),
                   Padding(
-                    padding: EdgeInsets.fromLTRB(screenWidth * 0.57, 0, 0, 0),
+                    padding: EdgeInsets.fromLTRB(screenWidth * 0.50, 0, 0, 0),
                     child: Text(
                       "-",
                       style: TextStyle(fontSize: screenWidth * 0.04),
@@ -264,7 +264,7 @@ class _AppointmentPageState extends State<AppointmentPage> {
                         color: Colors.black, fontSize: screenWidth * 0.04),
                   ),
                   Padding(
-                    padding: EdgeInsets.fromLTRB(screenWidth * 0.72, 0, 0, 0),
+                    padding: EdgeInsets.fromLTRB(screenWidth * 0.65, 0, 0, 0),
                     child: Text(
                       "\$61.00",
                       style: TextStyle(

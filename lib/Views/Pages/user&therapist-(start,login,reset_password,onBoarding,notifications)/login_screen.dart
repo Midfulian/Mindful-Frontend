@@ -2,6 +2,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:mindful/Controller/auth_controller.dart';
 import 'package:mindful/Views/Pages/therapist-(main_screens)/therapist_screen.dart';
+import 'package:mindful/Views/Pages/therapist-(signup,registration_request_pages)/signup_screen_therapist.dart';
 import 'package:mindful/Views/Pages/user&therapist-(start,login,reset_password,onBoarding,notifications)/reset_password_screens/email_screen.dart';
 import 'package:mindful/Views/Pages/user-(main_screens)/user_screen.dart';
 import 'package:mindful/Views/Pages/user-(signup,assessment_pages)/signup_screen_user.dart';
@@ -196,14 +197,14 @@ class _LoginScreenState extends State<LoginScreen> {
                       //   }
                       // }
                       if (userType == 'user') {
-                        Navigator.push(
+                        Navigator.pushReplacement(
                           context,
                           MaterialPageRoute(
                             builder: (context) => const UserBottomNavBar(),
                           ),
                         );
                       } else {
-                        Navigator.push(
+                        Navigator.pushReplacement(
                           context,
                           MaterialPageRoute(
                             builder: (context) => const TherapistBottomNavBar(),
@@ -231,12 +232,22 @@ class _LoginScreenState extends State<LoginScreen> {
                   const Text('Don\'t have an account?'),
                   TextButton(
                     onPressed: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => SignupScreenUser(),
-                        ),
-                      );
+                      if (userType == 'user') {
+                        Navigator.pushReplacement(
+                          context,
+                          MaterialPageRoute(
+
+                            builder: (context) => SignupScreenUser(),
+                          ),
+                        );
+                      } else {
+                        Navigator.pushReplacement(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => SignupScreenTherapist(),
+                          ),
+                        );
+                      }
                     },
                     child: const Text('Register'),
                   ),
